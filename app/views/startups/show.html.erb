@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @startup %>
+
+<div>
+  <%= link_to "Edit this startup", edit_startup_path(@startup) %> |
+  <%= link_to "Back to startups", startups_path %>
+
+  <%= button_to "Destroy this startup", @startup, method: :delete %>
+</div>

@@ -1,0 +1,71 @@
+.custom-card {
+  width: calc(100% - 30px); /* Adjust the width of the card to fit within the column */
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 1.5rem;
+  background-color: white; /* Ensure the entire card has a white background */
+  padding-bottom: 0;
+}
+
+.custom-card .card-img-top {
+  object-fit: contain;
+  width: 50%;
+  height: 50%;
+}
+
+.custom-card .card-body {
+  background-color: #F4F4F4; /* Set the card body background color to white */
+}
+
+.custom-card .card-title {
+  margin-top: 0px; /* Adjust the margin to move the title closer to the top */
+}
+
+.custom-card .card-text {
+  margin-top: 0px; /* Adjust the margin to move the text closer to the top */
+}
+
+
+.custom-card .card-footer {
+  background-color: white !important;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 1rem; /* Adjust padding to provide space around the buttons */
+  border: none /* Add back the border around the card footer */
+}
+
+.custom-card .card-footer .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(2.25rem + 2px);
+  white-space: nowrap;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.custom-card .card-footer .btn:last-child {
+  margin-right: 0; /* Remove margin from the last button */
+}
+
+.btn-custom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-container {
+  margin-top: 100px;
+}
+
+.icon-text {
+  margin-left: 0.75rem;
+}
+
+.custom-card .card-body {
+  padding: 1rem; /* Adjust padding to match button margins */
+}
+
+.custom-card .card-text {
+  margin-bottom: 0.5rem; /* Adjust margin bottom to match button margins */
+}

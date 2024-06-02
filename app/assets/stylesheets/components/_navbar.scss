@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-color: #ccd0d4d1;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,4 +14,13 @@
 .navbar .navbar-text {
   margin-right: 20px; /* Adjust this value to increase/decrease spacing */
   font-weight: bold; /* Optional: make the text bold */
+}
+
+.navbar-btn {
+  background-color: transparent;
+  display: flex;
+  align-items: center; /* Align items vertically */
+  margin-right: 30px; /* Adjust the margin to separate the button from the avatar */
+  margin-bottom:0;
+  margin-top:0;
 }
