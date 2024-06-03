@@ -2,8 +2,11 @@ source "https://rubygems.org"
 
 ruby "3.1.2"
 
-# Gemfile
+# Devise
 gem "devise"
+
+# Country
+gem 'country_select'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.3"

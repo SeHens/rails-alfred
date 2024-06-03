@@ -1,28 +1,39 @@
 .custom-card {
-  width: calc(100% - 30px); /* Adjust the width of the card to fit within the column */
+  width: calc(100% - 30px);
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 1.5rem;
-  background-color: white; /* Ensure the entire card has a white background */
+  background-color: white;
   padding-bottom: 0;
+}
+
+.custom-card .card-img-top-container {
+  width: 100%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .custom-card .card-img-top {
   object-fit: contain;
-  width: 50%;
-  height: 50%;
+  width: auto;
+  height: 80px;
+  /* filter: grayscale(100%); /* Convert the image to greyscale */
 }
 
 .custom-card .card-body {
-  background-color: #F4F4F4; /* Set the card body background color to white */
+  background-color: #F4F4F4;
 }
 
 .custom-card .card-title {
-  margin-top: 0px; /* Adjust the margin to move the title closer to the top */
+  margin-top: 0px;
 }
 
 .custom-card .card-text {
-  margin-top: 0px; /* Adjust the margin to move the text closer to the top */
+  margin-top: 0px;
 }
 
 
@@ -30,8 +41,8 @@
   background-color: white !important;
   margin-top: 0px;
   margin-bottom: 0px;
-  padding: 1rem; /* Adjust padding to provide space around the buttons */
-  border: none /* Add back the border around the card footer */
+  padding: 1rem;
+  border: none
 }
 
 .custom-card .card-footer .btn {
@@ -45,7 +56,7 @@
 }
 
 .custom-card .card-footer .btn:last-child {
-  margin-right: 0; /* Remove margin from the last button */
+  margin-right: 0;
 }
 
 .btn-custom {
@@ -63,9 +74,44 @@
 }
 
 .custom-card .card-body {
-  padding: 1rem; /* Adjust padding to match button margins */
+  padding: 1rem;
 }
 
 .custom-card .card-text {
-  margin-bottom: 0.5rem; /* Adjust margin bottom to match button margins */
+  margin-bottom: 0.5rem;
+}
+
+
+.btn-primary.btn-custom {
+  background-color: transparent;
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary.btn-custom:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-secondary.btn-custom {
+  background-color: transparent;
+  color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-secondary.btn-custom:hover {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+
+.btn-danger.btn-custom {
+  background-color: transparent;
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-danger.btn-custom:hover {
+  background-color: #dc3545;
+  color: #fff;
 }

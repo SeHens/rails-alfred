@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_02_214538) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_03_154420) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_02_214538) do
     t.string "name"
     t.string "homepage_url"
     t.string "industry"
-    t.string "country"
+    t.string "hq_location"
     t.float "total_funding"
     t.boolean "favorite"
     t.datetime "created_at", null: false

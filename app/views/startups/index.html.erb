@@ -6,28 +6,27 @@
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card custom-card">
           <a href="<%= startup.homepage_url %>" target="_blank">
-          <div class="d-flex justify-content-center align-items-center">
-            <img src="<%= startup.logo_url %>" class="card-img-top" alt="Startup logo" style="object-fit: contain; width: 80%; height: 80%;">
-            </a>
-          </div>
+            <div class="card-img-top-container">
+              <img src="<%= startup.logo_url %>" class="card-img-top" alt="Startup logo">
+            </div>
           </a>
-          <div class="card-body"> <!-- Add custom-card-body class -->
+          <div class="card-body">
             <h5 class="card-title">Startup: <%= startup.name %></h5>
             <p class="card-text">
-              <b>HQ:</b> <%= startup.country %><br>
+              <b>HQ:</b> <%= startup.hq_location %><br>
               <b>Industry:</b> <%= startup.industry %><br>
               <b>Funding (USD mn):</b> <%= startup.total_funding %><br>
             </p>
           </div>
           <div class="card-footer d-flex justify-content-start align-items-center">
             <a href="<%= startup_path(startup) %>" class="btn btn-primary btn-custom mr-2" target="_blank">
-              <i class="fas fa-info-circle"></i> More Info
+              <i class="fas fa-info-circle"></i><span style="margin-right: 5px;"></span> More Info
             </a>
             <a href="<%= edit_startup_path(startup)%>" class="btn btn-secondary btn-custom mr-2">
-              <i class="fas fa-edit"></i> Edit
+              <i class="fas fa-edit"></i><span style="margin-right: 5px;"></span>Edit
             </a>
             <a href="#" class="btn btn-danger btn-custom">
-              <i class="fas fa-trash-alt"></i> Remove
+              <i class="fas fa-trash-alt"></i><span style="margin-right: 5px;"></span> Remove
             </a>
           </div>
         </div>
