@@ -7,7 +7,7 @@
   <div class="row">
     <% @startups.each do |startup| %>
       <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card custom-card">
+        <div class="card custom-card position-relative">
           <a href="<%= startup.homepage_url %>" target="_blank">
             <div class="card-img-top-container">
               <img src="<%= startup.logo_url %>" class="card-img-top" alt="Startup logo">
@@ -25,13 +25,14 @@
             <a href="<%= startup_path(startup) %>" class="btn btn-primary btn-custom mr-2" target="_blank">
               <i class="fas fa-info-circle"></i><span style="margin-right: 5px;"></span> More Info
             </a>
-            <a href="<%= edit_startup_path(startup)%>" class="btn btn-secondary btn-custom mr-2">
+            <a href="<%= edit_startup_path(startup) %>" class="btn btn-secondary btn-custom mr-2">
               <i class="fas fa-edit"></i><span style="margin-right: 5px;"></span>Edit
             </a>
             <a href="#" class="btn btn-danger btn-custom">
               <i class="fas fa-trash-alt"></i><span style="margin-right: 5px;"></span> Remove
             </a>
           </div>
+          <i class="fa-regular fa-heart heart-icon"></i>
         </div>
       </div>
     <% end %>
