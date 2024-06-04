@@ -1,7 +1,7 @@
 <div class="container" style="margin-top: 70px;">
   <h1>All our startups</h1>
   <% if user_signed_in? %>
-    <p><%= current_user.first_name %>,
+    <p><%= current_user.first_name %>,</p>
   <% end %>
   <%= @startups.count %> investments to watch for you.</p>
   <div class="row">
@@ -31,8 +31,10 @@
             <a href="#" class="btn btn-danger btn-custom">
               <i class="fas fa-trash-alt"></i><span style="margin-right: 5px;"></span> Remove
             </a>
+            <% if user_signed_in? %>
+              <i class="fa-heart heart-icon <%= startup.favorite ? 'fa-solid' : 'fa-regular' %>" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
+            <% end %>
           </div>
-          <i class="fa-regular fa-heart heart-icon"></i>
         </div>
       </div>
     <% end %>

@@ -1,10 +1,12 @@
+# startups_controller.rb
 class StartupsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_startup, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: [:favorite, :unfavorite]
+  before_action :set_startup, only: %i[ show edit update destroy favorite unfavorite ]
 
   # GET /startups or /startups.json
   def index
-    @startups = Startup.all
+    @startups = Startup.order(created_at: :desc)
   end
 
   # GET /startups/1 or /startups/1.json
@@ -58,7 +60,37 @@ class StartupsController < ApplicationController
     end
   end
 
+  # PATCH /startups/1/favorite
+  def favorite
+    if current_user.favorites.create(startup: @startup)
+      @startup.update(favorite: true)
+      respond_to do |format|
+        format.json { render json: { status: 'favorited' } }
+      end
+    else
+      respond_to do |format|
+        format.json { render json: { status: 'error' }, status: :unprocessable_entity }
+      end
+    end
+  end
+
+# PATCH /startups/1/unfavorite
+  def unfavorite
+    favorite = current_user.favorites.find_by(startup: @startup)
+    if favorite.destroy
+      @startup.update(favorite: false) # Update to false instead of nil
+      respond_to do |format|
+        format.json { render json: { status: 'unfavorited' } }
+      end
+    else
+      respond_to do |format|
+        format.json { render json: { status: 'error' }, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_startup
       @startup = Startup.find(params[:id])
