@@ -1,3 +1,11 @@
+/* Additional Custom Styling */
+@media (min-width: 992px) { /* For large screens */
+  .custom-navbar {
+    width: calc(100% - 16px); /* Adjust the width to match the card grid */
+  }
+}
+
+
 .custom-card {
   width: calc(100% - 30px);
   margin-left: 0;
@@ -67,6 +75,16 @@
 
 .content-container {
   margin-top: 100px;
+}
+
+.cards-container {
+  margin-top: 20px; /* Adjust the value as needed */
+}
+
+.custom-navbar {
+  width: 97.8%; /* This can be customized if necessary */
+  border-bottom: 1px solid #dee2e6;
+  margin-bottom: -1px;
 }
 
 .icon-text {

@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "startups#index"
 
+  get 'favorites', to: 'startups#favorites'
+
   get "up" => "rails/health#show", as: :rails_health_check
 end

@@ -1,12 +1,16 @@
 # startups_controller.rb
 class StartupsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :authenticate_user!, only: [:favorite, :unfavorite]
+  # before_action :authenticate_user!, only: [:favorites, :favorite, :unfavorite]
   before_action :set_startup, only: %i[ show edit update destroy favorite unfavorite ]
 
-  # GET /startups or /startups.json
   def index
     @startups = Startup.order(created_at: :desc)
+  end
+
+  def favorites
+    @startups = current_user.favorites.map(&:startup)
+    render :index
   end
 
   # GET /startups/1 or /startups/1.json
