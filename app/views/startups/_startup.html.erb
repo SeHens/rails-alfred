@@ -1,8 +1,13 @@
 <!-- _startup.html.erb -->
 
 <div class="row align-items-center">
-  <div class="col-8 ">
+  <div class="col-8 d-flex align-items-center">
     <h1><%= @startup.name %></h1>
+    <% if @startup.favorite %>
+      <i class="fa-solid fa-heart p-3"></i> <!-- Solid heart icon -->
+    <% else %>
+      <i class="fa-regular fa-heart p-3"></i> <!-- Regular heart icon -->
+    <% end %>
   </div>
   <div class="col-4 text-right">
     <%= image_tag @startup.logo_url, class: "img-fluid startup-logo", alt: "Startup Logo" %> <!-- Display the logo image -->
@@ -10,13 +15,12 @@
 </div>
 
 <div class="row mt-3">
-  <div class="col-4 border p-3"> <!-- Added bg-light class for light grey background -->
+  <div class="col-4 border p-3 custom-margin"> <!-- Added custom-margin class -->
     <h5 class="card-title">Details</h5>
     <ul class="list-group mt-3"> <!-- Added margin-top class for spacing -->
       <li class="list-group-item"><b>Industry:</b> <%= @startup.industry %></li>
       <li class="list-group-item"><b>HQ Location:</b> <%= @startup.hq_location %></li>
       <li class="list-group-item"><b>Total Funding:</b> <%= @startup.total_funding %></li>
-      <li class="list-group-item"><b>Favorite:</b> <%= @startup.favorite %></li>
     </ul>
   </div>
   <div class="col-5 border p-3"> <!-- Added bg-light class for light grey background -->
