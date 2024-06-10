@@ -1,1 +1,26 @@
-<h1>STARTUP</h1></h>
+<!-- _startup.html.erb -->
+
+<div class="row align-items-center">
+  <div class="col-8 ">
+    <h1><%= @startup.name %></h1>
+  </div>
+  <div class="col-4 text-right">
+    <%= image_tag @startup.logo_url, class: "img-fluid startup-logo", alt: "Startup Logo" %> <!-- Display the logo image -->
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-4 border p-3"> <!-- Added bg-light class for light grey background -->
+    <h5 class="card-title">Details</h5>
+    <ul class="list-group mt-3"> <!-- Added margin-top class for spacing -->
+      <li class="list-group-item"><b>Industry:</b> <%= @startup.industry %></li>
+      <li class="list-group-item"><b>HQ Location:</b> <%= @startup.hq_location %></li>
+      <li class="list-group-item"><b>Total Funding:</b> <%= @startup.total_funding %></li>
+      <li class="list-group-item"><b>Favorite:</b> <%= @startup.favorite %></li>
+    </ul>
+  </div>
+  <div class="col-5 border p-3"> <!-- Added bg-light class for light grey background -->
+    <h5 class="card-title ">Description</h5>
+    <p class="card-text mt-3"><%= @startup.description %></p> <!-- Added margin-top class for spacing -->
+  </div>
+</div>

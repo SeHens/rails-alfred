@@ -29,10 +29,11 @@ class StartupsController < ApplicationController
   # POST /startups or /startups.json
   def create
     @startup = Startup.new(startup_params)
+    @startup.logo_url = 'no_logo.png' if @startup.logo_url.blank?
 
     respond_to do |format|
       if @startup.save
-        format.html { redirect_to startup_url(@startup), notice: "Startup was successfully created." }
+        format.html { redirect_to startups_path, notice: "Startup was successfully created." }
         format.json { render :show, status: :created, location: @startup }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,9 +44,11 @@ class StartupsController < ApplicationController
 
   # PATCH/PUT /startups/1 or /startups/1.json
   def update
+    @startup.logo_url = 'no_logo.png' if params[:startup][:logo_url].blank?
+
     respond_to do |format|
       if @startup.update(startup_params)
-        format.html { redirect_to startup_url(@startup), notice: "Startup was successfully updated." }
+        format.html { redirect_to startups_path, notice: "Startup was successfully updated." }
         format.json { render :show, status: :ok, location: @startup }
       else
         format.html { render :edit, status: :unprocessable_entity }

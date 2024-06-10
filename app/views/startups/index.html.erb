@@ -4,7 +4,6 @@
   <p class="investments-text" style="display: inline;"><span class="count"><%= @startups.count %></span> investments to watch for you.</p>
 
 
-
   <!-- Bootstrap Nav Tabs -->
   <div class="navbar-wrapper">
   <nav class="custom-navbar">
@@ -24,7 +23,7 @@
             <div class="card custom-card position-relative">
               <a href="<%= startup.homepage_url %>" target="_blank">
                 <div class="card-img-top-container">
-                  <img src="<%= startup.logo_url %>" class="card-img-top" alt="Startup logo">
+                  <%= image_tag startup.logo_url, class: "card-img-top", alt: "Startup logo" %>
                 </div>
               </a>
               <div class="card-body">
@@ -42,9 +41,9 @@
                 <a href="<%= edit_startup_path(startup) %>" class="btn btn-secondary btn-custom mr-2">
                   <i class="fas fa-edit"></i><span style="margin-right: 5px;"></span>Edit
                 </a>
-                <a href="#" class="btn btn-danger btn-custom">
-                  <i class="fas fa-trash-alt"></i><span style="margin-right: 5px;"></span> Remove
-                </a>
+                <%= button_to startup_path(startup), method: :delete, class: "btn btn-danger btn-custom", data: { controller: "confirmable", action: "confirmable#confirm", confirmable_message_value: 'Are you sure you want to remove this startup?' } do %>
+                <i class="fas fa-trash-alt"></i><span style="margin-right: 5px;"></span> Remove
+                <% end %>
                 <% if user_signed_in? %>
                   <i class="fa-heart heart-icon <%= startup.favorite ? 'fa-solid' : 'fa-regular' %>" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
                 <% end %>
