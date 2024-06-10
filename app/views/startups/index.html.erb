@@ -1,3 +1,5 @@
+<!-- _startup.html.erb -->
+
 <div class="container" style="margin-top: 70px;">
   <h1>All our startups</h1>
   <% if user_signed_in? %><%= current_user.first_name %>,<% end %>
@@ -6,51 +8,58 @@
 
   <!-- Bootstrap Nav Tabs -->
   <div class="navbar-wrapper">
-  <nav class="custom-navbar">
-    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link <%= 'active' if params[:controller] == 'startups' && params[:action] == 'index' %>" id="nav-all-tab" href="<%= root_path %>" aria-controls="nav-all" aria-selected="true">All</a>
-      <a class="nav-item nav-link <%= 'active' if params[:controller] == 'startups' && params[:action] == 'favorites' %>" id="nav-favorites-tab" href="<%= favorites_path %>" aria-controls="nav-favorites" aria-selected="false">Favorites</a>
-    </div>
-  </nav>
+    <nav class="custom-navbar">
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link <%= 'active' if params[:controller] == 'startups' && params[:action] == 'index' %>" id="nav-all-tab" href="<%= root_path %>" aria-controls="nav-all" aria-selected="true">All</a>
+        <a class="nav-item nav-link <%= 'active' if params[:controller] == 'startups' && params[:action] == 'favorites' %>" id="nav-favorites-tab" href="<%= favorites_path %>" aria-controls="nav-favorites" aria-selected="false">Favorites</a>
+      </div>
+    </nav>
 
-  <!-- Tab Content -->
-  <div class="tab-content cards-container" id="nav-tabContent">
-    <!-- All or Favorite Startups Tab -->
-    <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
-      <div class="row">
-        <% @startups.each do |startup| %>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card custom-card position-relative">
-              <a href="<%= startup.homepage_url %>" target="_blank">
-                <div class="card-img-top-container">
-                  <%= image_tag startup.logo_url, class: "card-img-top", alt: "Startup logo" %>
+    <!-- Tab Content -->
+    <div class="tab-content cards-container" id="nav-tabContent">
+      <!-- All or Favorite Startups Tab -->
+      <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
+        <div class="row">
+          <% @startups.each do |startup| %>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card custom-card position-relative">
+                <a href="<%= startup.homepage_url %>" target="_blank">
+                  <div class="card-img-top-container">
+                    <%= image_tag startup.logo_url, class: "card-img-top", alt: "Startup logo" %>
+                  </div>
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title">Startup: <%= startup.name %></h5>
+                  <p class="card-text">
+                    <b>HQ:</b> <%= startup.hq_location %><br>
+                    <b>Industry:</b> <%= startup.industry %><br>
+                    <b>Funding (USD mn):</b> <%= startup.total_funding %><br>
+                  </p>
                 </div>
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">Startup: <%= startup.name %></h5>
-                <p class="card-text">
-                  <b>HQ:</b> <%= startup.hq_location %><br>
-                  <b>Industry:</b> <%= startup.industry %><br>
-                  <b>Funding (USD mn):</b> <%= startup.total_funding %><br>
-                </p>
-              </div>
-              <div class="card-footer d-flex justify-content-start align-items-center">
-                <a href="<%= startup_path(startup) %>" class="btn btn-primary btn-custom mr-2" target="_blank">
-                  <i class="fas fa-info-circle"></i><span style="margin-right: 5px;"></span> More Info
-                </a>
-                <a href="<%= edit_startup_path(startup) %>" class="btn btn-secondary btn-custom mr-2">
-                  <i class="fas fa-edit"></i><span style="margin-right: 5px;"></span>Edit
-                </a>
-                <%= button_to startup_path(startup), method: :delete, class: "btn btn-danger btn-custom", data: { controller: "confirmable", action: "confirmable#confirm", confirmable_message_value: 'Are you sure you want to remove this startup?' } do %>
-                <i class="fas fa-trash-alt"></i><span style="margin-right: 5px;"></span> Remove
-                <% end %>
-                <% if user_signed_in? %>
-                  <i class="fa-heart heart-icon <%= startup.favorite ? 'fa-solid' : 'fa-regular' %>" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
-                <% end %>
+                <div class="card-footer d-flex justify-content-start align-items-center">
+                  <a href="<%= startup_path(startup) %>" class="btn btn-primary btn-custom mr-2" target="_blank">
+                    <i class="fas fa-info-circle"></i><span style="margin-right: 5px;"></span> More Info
+                  </a>
+                  <a href="<%= edit_startup_path(startup) %>" class="btn btn-secondary btn-custom mr-2">
+                    <i class="fas fa-edit"></i><span style="margin-right: 5px;"></span>Edit
+                  </a>
+                  <%= button_to startup_path(startup), method: :delete, class: "btn btn-danger btn-custom", data: { controller: "confirmable", action: "confirmable#confirm", confirmable_message_value: 'Are you sure you want to remove this startup?' } do %>
+                    <i class="fas fa-trash-alt"></i><span style="margin-right: 5px;"></span> Remove
+                  <% end %>
+                  <% if user_signed_in? && params[:action] == 'index' %>
+                    <i class="fa-heart heart-icon <%= startup.favorite ? 'fa-solid' : 'fa-regular' %>" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
+                  <% elsif params[:action] == 'favorites' %>
+                    <% if startup.favorite %>
+                      <i class="fa-solid fa-heart heart-icon"></i>
+                    <% else %>
+                      <i class="fa-regular fa-heart heart-icon"></i>
+                    <% end %>
+                  <% end %>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
