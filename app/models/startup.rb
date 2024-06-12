@@ -1,11 +1,9 @@
+# startup.rb
 class Startup < ApplicationRecord
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :favoriting_users, through: :favorites, source: :user
 
-  validates :name, presence: true
-  validates :homepage_url, presence: true
-  validates :industry, presence: true
-  validates :hq_location, presence: true
-  validates :total_funding, presence: true
-  validates :description, presence: true
+  attribute :favorite, :boolean, default: false
+
+  validates :name, :homepage_url, :industry, :hq_location, :total_funding, :description, presence: true
 end

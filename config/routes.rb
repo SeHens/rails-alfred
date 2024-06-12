@@ -1,3 +1,4 @@
+# routes.rb
 Rails.application.routes.draw do
   resources :startups do
     member do
