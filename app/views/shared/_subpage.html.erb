@@ -2,7 +2,7 @@
 <div class="navbar-wrapper">
   <nav class="custom-navbar">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link <%= 'active' if params[:controller] == 'startups' && params[:action] == 'index' %>" id="nav-all-tab" href="<%= root_path %>" aria-controls="nav-all" aria-selected="true">All</a>
+      <a class="nav-item nav-link <%= 'active' if params[:controller] == 'startups' && params[:action] == 'index' %>" id="nav-all-tab" href="<%= alfred_root_path %>" aria-controls="nav-all" aria-selected="true">All</a>
       <a class="nav-item nav-link <%= 'active' if params[:controller] == 'startups' && params[:action] == 'favorites' %>" id="nav-favorites-tab" href="<%= favorites_path %>" aria-controls="nav-favorites" aria-selected="false">Favorites</a>
     </div>
   </nav>

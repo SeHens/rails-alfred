@@ -1,3 +1,4 @@
+# app/controllers/startups_controller.rb
 class StartupsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   before_action :authenticate_user!, only: [:favorites, :favorite, :unfavorite]
