@@ -18,4 +18,7 @@ Rails.application.routes.draw do
 
   # Health check route
   get "up" => "rails/health#show", as: :rails_health_check
+
+  # Root route for home page
+  root to: 'home#index'
 end

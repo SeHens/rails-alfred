@@ -11,7 +11,7 @@ export default class extends Controller {
   toggle(event) {
     event.preventDefault()
     const startupId = this.element.dataset.startupId
-    const url = this.element.classList.contains("fa-regular") ? `alfred/startups/${startupId}/favorite` : `alfred/startups/${startupId}/unfavorite`
+    const url = this.element.classList.contains("fa-regular") ? `/alfred/startups/${startupId}/favorite` : `/alfred/startups/${startupId}/unfavorite`
     const method = this.element.classList.contains("fa-regular") ? "PATCH" : "PATCH"
 
     fetch(url, {
