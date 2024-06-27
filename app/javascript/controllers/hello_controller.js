@@ -10,10 +10,10 @@ export default class extends Controller {
     // Start blinking immediately for 2 seconds
     this.startBlinking();
 
-    // After 2 seconds, start typing text
+    // After 3 seconds, start typing text
     setTimeout(() => {
       this.typewriter();
-    }, 2000);
+    }, 3000);
   }
 
   typewriter() {
