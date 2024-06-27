@@ -15,12 +15,21 @@
             </a>
             <div class="card-body">
               <h5 class="card-title"><%= startup.name %></h5>
+              <hr>
               <p class="card-text">
                 <b>HQ:</b> <%= startup.hq_location %><br>
                 <b>Industry:</b> <%= startup.industry %><br>
-                <b>Funding (USD mn):</b> <%= startup.total_funding %><br>
+                <b>Funding</b><br>
+                <span class="fundraise-info">
+                <span class="indent">Round:</span> <%= startup.total_funding %><br>
+                <span class="indent">Amount:</span> <%= startup.total_funding %><br>
+                <span class="indent">Investors:</span> <%= startup.total_funding %><br>
+                <span class="indent">Date:</span> <%= startup.total_funding %><br>
+                <span class="indent">Total:</span> <%= startup.total_funding %><br>
+              </span>
               </p>
             </div>
+
             <div class="card-footer d-flex justify-content-center align-items-center">
               <% if user_signed_in? %>
                 <a href="<%= startup_path(startup) %>" class="btn btn-primary btn-custom">

@@ -20,14 +20,14 @@
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 1.5rem;
-  background-color: white;
+  background-color: #ffffff;
   padding-bottom: 0;
 }
 
 .custom-card .card-img-top-container {
   width: 100%;
-  padding-top: 10%;
-  padding-bottom: 10%;
+  padding-top: 2%;
+  padding-bottom: 2%;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -37,34 +37,50 @@
 .custom-card .card-img-top {
   object-fit: contain;
   width: auto;
-  height: 80px;
+  height: 50px;
 }
 
 .custom-card .card-body {
-  background-color: #F4F4F4;
+  background-color: #ffffff;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  padding-top: 0; /* Ensure no additional padding at the top */
 }
 
 .custom-card .card-title {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .custom-card .card-text {
-  margin-top: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.card-text .fundraise-info {
+  display: block;
+  margin-bottom: 0; /* Ensure no bottom margin */
+}
+
+.card-text .fundraise-info .indent {
+  display: inline-block;
+  margin-left: 10px; /* Adjust the indentation as needed */
 }
 
 .custom-card .card-footer {
   background-color: white !important;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding: 1rem;
-  border: none
+  margin-top: 0;
+  padding-top: 0; /* Ensure no top padding */
+  padding-bottom: 1rem; /* Maintain bottom padding for aesthetics */
+  border: none;
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
 }
 
 .custom-card .card-footer .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: calc(2.25rem + 2px);
   white-space: nowrap;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
@@ -99,14 +115,6 @@
 
 .icon-text {
   margin-left: 0.75rem;
-}
-
-.custom-card .card-body {
-  padding: 1rem;
-}
-
-.custom-card .card-text {
-  margin-bottom: 0.5rem;
 }
 
 .btn-primary.btn-custom {
@@ -167,9 +175,15 @@
     font-size: 1.25rem;
   }
 
+  .custom-card .card-img-top-container {
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }
+
   .custom-card .card-img-top {
     height: auto;
     width: 100%;
+    max-height: 100px; /* Add a max-height for mobile screens */
   }
 
   .custom-card .card-footer .btn {
