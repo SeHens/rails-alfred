@@ -38,7 +38,6 @@
   object-fit: contain;
   width: auto;
   height: 80px;
-  /* filter: grayscale(100%); /* Convert the image to greyscale */
 }
 
 .custom-card .card-body {
@@ -147,6 +146,12 @@
   right: 10px; /* Adjust as needed */
 }
 
+.link-icon {
+  position: absolute;
+  top: 10px; /* Align with heart icon */
+  right: 40px; /* Adjust to place it left of the heart icon */
+}
+
 /* Responsive adjustments */
 @media (max-width: 576px) {
   .custom-card {
@@ -177,5 +182,11 @@
   .heart-icon {
     right: 5px;
     top: 5px;
+  }
+
+  .link-icon {
+    position: absolute;
+    top: 5px; /* Align with heart icon */
+    right: 20px; /* Adjust to place it left of the heart icon */
   }
 }

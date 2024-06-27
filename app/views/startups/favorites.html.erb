@@ -15,7 +15,7 @@
             </div>
           </a>
           <div class="card-body">
-            <h5 class="card-title">Startup: <%= startup.name %></h5>
+            <h5 class="card-title"><%= startup.name %></h5>
             <p class="card-text">
               <b>HQ:</b> <%= startup.hq_location %><br>
               <b>Industry:</b> <%= startup.industry %><br>
@@ -38,6 +38,7 @@
               <% else %>
                 <i class="fa-regular fa-heart heart-icon"></i> <!-- Regular heart icon for not favorited -->
               <% end %>
+              <i class="fa-solid fa-arrow-up-right-from-square link-icon ml-2"></i>
             <% end %>
           </div>
         </div>
