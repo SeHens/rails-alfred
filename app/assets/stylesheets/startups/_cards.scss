@@ -78,6 +78,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  .icon-text {
+    margin-left: 5px; /* Increase or decrease as needed */
+  }
 }
 
 .content-container {

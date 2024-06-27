@@ -1,4 +1,3 @@
-<!-- app/views/startups/index.html.erb -->
 <div class="container mt-5">
   <h1>All our startups</h1>
   <% if user_signed_in? %><%= current_user.first_name %>,<% end %>
@@ -22,17 +21,11 @@
                 <b>Funding (USD mn):</b> <%= startup.total_funding %><br>
               </p>
             </div>
-            <div class="card-footer d-flex justify-content-start align-items-center flex-wrap">
+            <div class="card-footer d-flex justify-content-center align-items-center">
               <% if user_signed_in? %>
                 <a href="<%= startup_path(startup) %>" class="btn btn-primary btn-custom">
-                  <i class="fas fa-info-circle"></i> More Info
+                  <i class="fas fa-info-circle"></i><span class="icon-text">More Info</span>
                 </a>
-                <a href="<%= edit_startup_path(startup) %>" class="btn btn-secondary btn-custom ml-2">
-                  <i class="fas fa-edit"></i> Edit
-                </a>
-                <%= button_to startup_path(startup), method: :delete, class: "btn btn-danger btn-custom ml-2", data: { controller: "confirmable", action: "confirmable#confirm", confirmable_message_value: 'Are you sure you want to remove this startup?' } do %>
-                  <i class="fas fa-trash-alt"></i> Remove
-                <% end %>
                 <% if current_user.favorites.exists?(startup: startup) %>
                   <i class="fa-solid fa-heart heart-icon ml-2 favorite-toggle" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
                 <% else %>
@@ -41,13 +34,7 @@
                 <i class="fa-solid fa-arrow-up-right-from-square link-icon ml-2"></i>
               <% else %>
                 <a href="<%= new_user_session_path %>" class="btn btn-primary btn-custom">
-                  <i class="fas fa-info-circle"></i> More Info
-                </a>
-                <a href="<%= new_user_session_path %>" class="btn btn-secondary btn-custom ml-2">
-                  <i class="fas fa-edit"></i> Edit
-                </a>
-                <a href="<%= new_user_session_path %>" class="btn btn-danger btn-custom ml-2">
-                  <i class="fas fa-trash-alt"></i> Remove
+                  <i class="fas fa-info-circle"></i><span class="icon-text">More Info</span>
                 </a>
               <% end %>
             </div>
