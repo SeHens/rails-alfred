@@ -1,3 +1,5 @@
+/* app/assets/stylesheets/application.scss */
+
 /* Additional Custom Styling */
 @media (min-width: 992px) { /* For large screens */
   .custom-navbar {
@@ -50,7 +52,6 @@
 .custom-card .card-text {
   margin-top: 0px;
 }
-
 
 .custom-card .card-footer {
   background-color: white !important;
@@ -106,7 +107,6 @@
   margin-bottom: 0.5rem;
 }
 
-
 .btn-primary.btn-custom {
   background-color: transparent;
   color: #007bff;
@@ -129,7 +129,6 @@
   color: #fff;
 }
 
-
 .btn-danger.btn-custom {
   background-color: transparent;
   color: #dc3545;
@@ -141,10 +140,42 @@
   color: #fff;
 }
 
-
 .heart-icon {
-    color: #041225; /* Fill color when favorited */
-    position: absolute;
-    top: 10px; /* Adjust as needed */
-    right: 10px; /* Adjust as needed */
+  color: #041225; /* Fill color when favorited */
+  position: absolute;
+  top: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .custom-card {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .custom-card .card-title {
+    font-size: 1.25rem;
+  }
+
+  .custom-card .card-img-top {
+    height: auto;
+    width: 100%;
+  }
+
+  .custom-card .card-footer .btn {
+    margin-bottom: 0.25rem;
+    margin-right: 0;
+  }
+
+  .btn-custom {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .heart-icon {
+    right: 5px;
+    top: 5px;
+  }
 }

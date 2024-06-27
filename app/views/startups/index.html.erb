@@ -1,56 +1,58 @@
 <!-- app/views/startups/index.html.erb -->
-<div class="container" style="margin-top: 70px;">
+<div class="container mt-5">
   <h1>All our startups</h1>
   <% if user_signed_in? %><%= current_user.first_name %>,<% end %>
-  <p class="investments-text" style="display: inline;"><span class="count"><%= @startups.count %></span> investments to watch for you.</p>
+  <p class="investments-text-inline"><span class="count"><%= @startups.count %></span> investments to watch for you.</p>
 
-  <%= render 'shared/subpage' do %>
-    <% @startups.each do |startup| %>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card custom-card position-relative">
-          <a href="<%= startup.homepage_url %>" target="_blank">
-            <div class="card-img-top-container">
-              <%= image_tag startup.logo_url, class: "card-img-top", alt: "Startup logo" %>
+  <div class="row cards-container">
+    <%= render 'shared/subpage' do %>
+      <% @startups.each do |startup| %>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <div class="card custom-card position-relative h-100">
+            <a href="<%= startup.homepage_url %>" target="_blank">
+              <div class="card-img-top-container">
+                <%= image_tag startup.logo_url, class: "card-img-top img-fluid", alt: "Startup logo" %>
+              </div>
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">Startup: <%= startup.name %></h5>
+              <p class="card-text">
+                <b>HQ:</b> <%= startup.hq_location %><br>
+                <b>Industry:</b> <%= startup.industry %><br>
+                <b>Funding (USD mn):</b> <%= startup.total_funding %><br>
+              </p>
             </div>
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">Startup: <%= startup.name %></h5>
-            <p class="card-text">
-              <b>HQ:</b> <%= startup.hq_location %><br>
-              <b>Industry:</b> <%= startup.industry %><br>
-              <b>Funding (USD mn):</b> <%= startup.total_funding %><br>
-            </p>
-          </div>
-          <div class="card-footer d-flex justify-content-start align-items-center">
-            <% if user_signed_in? %>
-              <a href="<%= startup_path(startup) %>" class="btn btn-primary btn-custom mr-2">
-                <i class="fas fa-info-circle"></i><span style="margin-right: 5px;"></span> More Info
-              </a>
-              <a href="<%= edit_startup_path(startup) %>" class="btn btn-secondary btn-custom mr-2">
-                <i class="fas fa-edit"></i><span style="margin-right: 5px;"></span>Edit
-              </a>
-              <%= button_to startup_path(startup), method: :delete, class: "btn btn-danger btn-custom", data: { controller: "confirmable", action: "confirmable#confirm", confirmable_message_value: 'Are you sure you want to remove this startup?' } do %>
-                <i class="fas fa-trash-alt"></i><span style="margin-right: 5px;"></span> Remove
-              <% end %>
-              <% if current_user.favorites.exists?(startup: startup) %>
-                <i class="fa-solid fa-heart heart-icon" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
+            <div class="card-footer d-flex justify-content-start align-items-center flex-wrap">
+              <% if user_signed_in? %>
+                <a href="<%= startup_path(startup) %>" class="btn btn-primary btn-custom">
+                  <i class="fas fa-info-circle"></i> More Info
+                </a>
+                <a href="<%= edit_startup_path(startup) %>" class="btn btn-secondary btn-custom ml-2">
+                  <i class="fas fa-edit"></i> Edit
+                </a>
+                <%= button_to startup_path(startup), method: :delete, class: "btn btn-danger btn-custom ml-2", data: { controller: "confirmable", action: "confirmable#confirm", confirmable_message_value: 'Are you sure you want to remove this startup?' } do %>
+                  <i class="fas fa-trash-alt"></i> Remove
+                <% end %>
+                <% if current_user.favorites.exists?(startup: startup) %>
+                  <i class="fa-solid fa-heart heart-icon ml-2" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
+                <% else %>
+                  <i class="fa-regular fa-heart heart-icon ml-2" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
+                <% end %>
               <% else %>
-                <i class="fa-regular fa-heart heart-icon" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
+                <a href="<%= new_user_session_path %>" class="btn btn-primary btn-custom">
+                  <i class="fas fa-info-circle"></i> More Info
+                </a>
+                <a href="<%= new_user_session_path %>" class="btn btn-secondary btn-custom ml-2">
+                  <i class="fas fa-edit"></i> Edit
+                </a>
+                <a href="<%= new_user_session_path %>" class="btn btn-danger btn-custom ml-2">
+                  <i class="fas fa-trash-alt"></i> Remove
+                </a>
               <% end %>
-            <% else %>
-              <a href="<%= new_user_session_path %>" class="btn btn-primary btn-custom mr-2">
-                <i class="fas fa-info-circle"></i><span style="margin-right: 5px;"></span> More Info
-              </a>
-              <a href="<%= new_user_session_path %>" class="btn btn-secondary btn-custom mr-2">
-                <i class="fas fa-edit"></i><span style="margin-right: 5px;"></span>Edit
-              </a>
-              <a href="<%= new_user_session_path %>" class="btn btn-danger btn-custom mr-2">
-                <i class="fas fa-trash-alt"></i><span style="margin-right: 5px;"></span> Remove
-              </a>
-            <% end %>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
