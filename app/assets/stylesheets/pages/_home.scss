@@ -22,7 +22,7 @@
   position: absolute;
   top: 0; /* Align the cursor to the top of the element */
   right: -0.25em; /* Position the cursor at the end of the text */
-  height: 1.25em; /* Match the cursor height with the font size */
+  height: 5em; /* Match the cursor height with the font size */
   line-height: 1; /* Ensure the cursor line height matches the text */
   animation: blink-animation 1s step-end infinite;
 }
