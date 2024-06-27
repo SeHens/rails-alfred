@@ -1,7 +1,8 @@
+<!-- app/views/layouts/application.html.erb -->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RailsStartups</title>
+  <title><%= yield(:page_title).presence || "Perpetual Growth | alfred." %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://kit.fontawesome.com/39fe72d235.js" crossorigin="anonymous"></script>
   <%= csrf_meta_tags %>
