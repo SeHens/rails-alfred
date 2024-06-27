@@ -1,1 +1,34 @@
-// Specific CSS for your home-page
+/* app/assets/stylesheets/application.scss */
+
+.typewriter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+}
+
+.typewriter-output {
+  font-size: 72px; /* Adjust font size as needed */
+  color: #333;
+  display: inline-block;
+  min-height: 2em; /* Set a minimum height to avoid height fluctuations */
+  line-height: 1.25em; /* Set line height to match font size */
+  white-space: pre; /* Preserve whitespace to prevent wrapping issues */
+  position: relative; /* Required for the pseudo-element */
+}
+
+.typewriter-output::after {
+  content: "|";
+  position: absolute;
+  top: 0; /* Align the cursor to the top of the element */
+  right: -0.4em; /* Position the cursor at the end of the text */
+  height: 1.25em; /* Match the cursor height with the font size */
+  line-height: 1; /* Ensure the cursor line height matches the text */
+  animation: blink-animation 1s step-end infinite;
+}
+
+@keyframes blink-animation {
+  50% {
+    opacity: 0;
+  }
+}
