@@ -40,7 +40,9 @@
                 <% else %>
                   <i class="fa-regular fa-heart heart-icon ml-2 favorite-toggle" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
                 <% end %>
+                <a href="<%= startup.cb_link %>" target="_blank">
                 <i class="fa-solid fa-arrow-up-right-from-square link-icon ml-2"></i>
+                </a>
               <% else %>
                 <a href="<%= new_user_session_path %>" class="btn btn-primary btn-custom">
                   <i class="fas fa-info-circle"></i><span class="icon-text">More Info</span>

@@ -167,6 +167,8 @@
 }
 
 .link-icon {
+  color: #041225; /* Ensures the anchor inherits its parent's color */
+  text-decoration: none; /* Removes underline (if any) */
   position: absolute;
   top: 10px; /* Align with heart icon */
   right: 40px; /* Adjust to place it left of the heart icon */
@@ -211,6 +213,8 @@
   }
 
   .link-icon {
+    color: #041225; /* Ensures the anchor inherits its parent's color */
+    text-decoration: none; /* Removes underline (if any) */
     position: absolute;
     top: 5px; /* Align with heart icon */
     right: 20px; /* Adjust to place it left of the heart icon */
