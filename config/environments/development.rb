@@ -9,7 +9,7 @@ Rails.application.configure do
   config.enable_reloading = true
 
    # Allow requests from ngrok
-  config.hosts << "2746-89-244-171-126.ngrok-free.app"
+  config.hosts << "d820-89-244-171-126.ngrok-free.app"
 
   # Do not eager load code on boot.
   config.eager_load = false
