@@ -62,9 +62,18 @@
   margin-bottom: 0; /* Ensure no bottom margin */
 }
 
-.card-text .fundraise-info .indent {
+.card-text .fundraise-info .bullets {
   display: inline-block;
-  margin-left: 10px; /* Adjust the indentation as needed */
+  color: #007bff;
+  font-weight: 550;
+}
+
+.card-text .fundraise-info .break-text {
+  display: block;
+  max-width: 400px; /* Adjust the width as needed */
+  word-wrap: break-word; /* Break words if needed */
+  overflow-wrap: break-word; /* Ensure compatibility */
+  white-space: normal; /* Ensure text wraps normally */
 }
 
 .custom-card .card-footer {

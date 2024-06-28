@@ -23,6 +23,11 @@ CSV.foreach(csv_file_path, headers: true, quote_char: '"') do |row|
     hq_location: row['hq_location'],
     homepage_url: row['homepage_url'],
     total_funding: row['total_funding'].to_f,
+    round_name: row['round_name'],
+    last_funding: row['last_funding'],
+    top_3_investors: row['top_3_investors'],
+    funding_date: row['funding_date'],
+    cb_link: row['cb_link'],
     favorite: row['favorite'] == 'true',
     description: row['description']
   )

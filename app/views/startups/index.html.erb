@@ -19,13 +19,13 @@
               <p class="card-text">
                 <b>HQ:</b> <%= startup.hq_location %><br>
                 <b>Industry:</b> <%= startup.industry %><br>
-                <b>Funding</b><br>
                 <span class="fundraise-info">
-                <span class="indent">Round:</span> <%= startup.total_funding %><br>
-                <span class="indent">Amount:</span> <%= startup.total_funding %><br>
-                <span class="indent">Investors:</span> <%= startup.total_funding %><br>
-                <span class="indent">Date:</span> <%= startup.total_funding %><br>
-                <span class="indent">Total:</span> <%= startup.total_funding %><br>
+                <b class="bullets">Round:</b> <%= startup.round_name %><br>
+                <b class="bullets">Amount:</b> <%= startup.last_funding %><br>
+                <b class="bullets">Investors:</b>
+                <span class="break-text"><%= startup.top_3_investors %></span>
+                <b class="bullets">Total:</b> <%= startup.total_funding %><br><br>
+                <b class="bullets">Date:</b> <%= startup.funding_date.strftime('%y-%b-%d').upcase %><br>
               </span>
               </p>
             </div>
