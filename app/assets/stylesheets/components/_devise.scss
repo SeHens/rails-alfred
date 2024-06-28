@@ -2,25 +2,18 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Align items to the top */
 }
 
 .card {
-  margin: auto;
-  width: 35%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
+  margin: 50px auto 0; /* Adjust margin-top as needed */
+  width: 100%; /* Adjusted width for responsiveness */
+  max-width: 400px; /* Maximum width to prevent stretching on larger screens */
+  padding: 40px;
 }
 
 .text-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  width: 100%;
 }
 
 .form-actions {
@@ -34,10 +27,6 @@
   width: 100%;
 }
 
-.btn-smaller {
-  width: 50%;
-}
-
 .same-height-btn {
   height: 40px;
   display: flex;
@@ -47,11 +36,4 @@
 
 .rounded-btn {
   border-radius: 8px;
-}
-
-.separator {
-  width: 100%;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 10px 0;
 }

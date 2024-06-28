@@ -1,24 +1,24 @@
-<div class="container d-flex justify-content-center align-items-center vh-100">
+<div class="container d-flex vh-100">
   <div class="card p-4 shadow-lg">
     <h2 class="text-center mb-4">Log in</h2>
 
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs mb-3">
-      <%= f.input :email,
-                  required: false,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" } %>
-      <%= f.input :password,
-                  required: false,
-                  input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-    </div>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs mb-3">
+        <%= f.input :email,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+        <%= f.input :password,
+                    required: false,
+                    input_html: { autocomplete: "current-password" } %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Log in", class: "btn btn-primary btn-full-width rounded-btn same-height-btn mb-2" %>
-    </div>
-  <% end %>
+      <div class="form-actions">
+        <%= f.button :submit, "Log in", class: "btn btn-primary btn-full-width rounded-btn same-height-btn mb-2" %>
+      </div>
+    <% end %>
 
-  <%= render "devise/shared/links" %>
-</div>
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
