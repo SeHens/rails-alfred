@@ -17,7 +17,7 @@ export default class extends Controller {
   }
 
   typewriter() {
-    const text = "alfred."; // Replace with your desired text
+    const text = ".alfred"; // Replace with your desired text
     const speed = 150; // Speed of typing in milliseconds
 
     let i = 0;

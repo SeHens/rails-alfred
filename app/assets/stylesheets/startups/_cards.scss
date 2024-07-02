@@ -5,12 +5,9 @@
   }
 }
 
-.investments-text-inline {
-  display: inline;
-}
-
 .navbar-wrapper {
-  margin-top: 20px; /* Adjust the value as needed */
+  margin-top: 0px; /* Adjust the value as needed */
+  margin-bottom: 0px;
 }
 
 .custom-card {
@@ -66,6 +63,16 @@
   padding: 0; /* Remove padding */
 }
 
+.card-link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit the color from the parent element */
+  display: block; /* Make the link a block element to cover the card */
+}
+
+.card-link .card-text b {
+  color: inherit; /* Ensure bold text inherits color */
+}
+
 .custom-card .card-body p {
   margin: 0; /* Ensure no margin for paragraphs */
   padding-bottom: 0.5rem; /* Add padding to ensure spacing */
@@ -76,11 +83,8 @@
 }
 
 .cards-row {
+  margin-top: 0px; /* Adjust to ensure the cards start below the fixed subpage */
   margin-bottom: -0.5rem; /* Adjust margin to compensate for child margins */
-}
-
-.cards-row > [class*='col-'] {
-  padding-bottom: 0rem; /* Same as horizontal margin of cards */
 }
 
 .btn-custom {
@@ -104,10 +108,6 @@
   width: 100%; /* This can be customized if necessary */
   border-bottom: 1px solid #dee2e6;
   margin-bottom: -1px;
-}
-
-.icon-text {
-  margin-left: 0.75rem;
 }
 
 .btn-primary.btn-custom {

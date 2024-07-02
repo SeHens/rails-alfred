@@ -1,11 +1,12 @@
 <!-- app/views/startups/favorites.html.erb -->
 <div class="container mt-5">
   <div class="row cards-row">
-    <%= render 'shared/subpage' do %>
+    <%= render 'shared/subpage' %>
       <% @startups.each do |startup| %>
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-2">
           <div class="card custom-card position-relative h-100">
             <div class="card-img-top-container">
+              <%= link_to startup_path(startup), class: "card-link" do %>
               <%= image_tag startup.logo_url, class: "card-img-top img-fluid", alt: "Startup logo" %>
             </div>
             <div class="card-body">
@@ -17,6 +18,7 @@
                 <b>Date:</b> <%= formatted_funding_date(startup.funding_date) %><br>
               </p>
             </div>
+            <% end %>
             <% if user_signed_in? %>
               <% if current_user.favorites.exists?(startup: startup) %>
                 <i class="fa-solid fa-heart heart-icon"></i> <!-- Solid heart icon for favorited -->
@@ -30,6 +32,5 @@
           </div>
         </div>
       <% end %>
-    <% end %>
   </div>
 </div>
