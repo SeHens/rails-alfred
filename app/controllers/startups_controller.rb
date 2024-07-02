@@ -12,6 +12,7 @@ class StartupsController < ApplicationController
   def favorites
     if user_signed_in?
       @startups = current_user.favorites.includes(:startup).map(&:startup)
+      @favorites = current_user.favorites.includes(:startup)
     else
       @startups = []
     end

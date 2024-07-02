@@ -1,5 +1,16 @@
 <!-- app/views/shared/_subpage.html.erb -->
 <div class="navbar-wrapper">
+  <h1>sourcing agent.</h1>
+   <% if user_signed_in? %>
+    <%= current_user.first_name %>,
+    <% if params[:action] == 'favorites' %>
+      You have <%= @favorites.count %> favorite investments.
+    <% else %>
+      I have <%= @startups.count %> investments to watch for you.
+    <% end %>
+  <% end %>
+  </p>
+  <br>
   <nav class="custom-navbar">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-item nav-link <%= 'active' if params[:controller] == 'startups' && params[:action] == 'index' %>" id="nav-all-tab" href="<%= alfred_root_path %>" aria-controls="nav-all" aria-selected="true">All</a>

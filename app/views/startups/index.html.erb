@@ -1,54 +1,32 @@
+<!-- app/views/startups/index.html.erb -->
 <div class="container mt-5">
-  <h1>sourcing agent.</h1>
-  <% if user_signed_in? %><%= current_user.first_name %>,<% end %>
-  <p class="investments-text-inline"><span class="count"><%= @startups.count %></span> investments to watch for you.</p>
-
-  <div class="row cards-container">
+  <div class="row cards-row">
     <%= render 'shared/subpage' do %>
       <% @startups.each do |startup| %>
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-2">
           <div class="card custom-card position-relative h-100">
-            <a href="<%= startup.homepage_url %>" target="_blank">
-              <div class="card-img-top-container">
-                <%= image_tag startup.logo_url, class: "card-img-top img-fluid", alt: "Startup logo" %>
-              </div>
-            </a>
+            <div class="card-img-top-container">
+              <%= image_tag startup.logo_url, class: "card-img-top img-fluid", alt: "Startup logo" %>
+            </div>
             <div class="card-body">
-              <h5 class="card-title"><%= startup.name %></h5>
-              <hr>
               <p class="card-text">
+                <b>Name:</b> <%= startup.name %><br>
                 <b>HQ:</b> <%= startup.hq_location %><br>
                 <b>Industry:</b> <%= startup.industry %><br>
-                <span class="fundraise-info">
-                <b class="bullets">Round:</b> <%= startup.round_name %><br>
-                <b class="bullets">Amount:</b> <%= startup.last_funding %><br>
-                <b class="bullets">Investors:</b>
-                <span class="break-text"><%= startup.top_3_investors %></span>
-                <b class="bullets">Total:</b> <%= startup.total_funding %><br><br>
-                <b class="bullets">Date:</b> <%= startup.funding_date.strftime('%y-%b-%d').upcase %><br>
-              </span>
+                <b>Round:</b> <%= startup.round_name %>, $<%= startup.last_funding %>mn<br>
+                <b>Date:</b> <%= formatted_funding_date(startup.funding_date) %><br>
               </p>
             </div>
-
-            <div class="card-footer d-flex justify-content-center align-items-center">
-              <% if user_signed_in? %>
-                <a href="<%= startup_path(startup) %>" class="btn btn-primary btn-custom">
-                  <i class="fas fa-info-circle"></i><span class="icon-text">More Info</span>
-                </a>
-                <% if current_user.favorites.exists?(startup: startup) %>
-                  <i class="fa-solid fa-heart heart-icon ml-2 favorite-toggle" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
-                <% else %>
-                  <i class="fa-regular fa-heart heart-icon ml-2 favorite-toggle" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
-                <% end %>
-                <a href="<%= startup.cb_link %>" target="_blank">
-                <i class="fa-solid fa-arrow-up-right-from-square link-icon ml-2"></i>
-                </a>
+            <% if user_signed_in? %>
+              <% if current_user.favorites.exists?(startup: startup) %>
+                <i class="fa-solid fa-heart heart-icon ml-2 favorite-toggle" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
               <% else %>
-                <a href="<%= new_user_session_path %>" class="btn btn-primary btn-custom">
-                  <i class="fas fa-info-circle"></i><span class="icon-text">More Info</span>
-                </a>
+                <i class="fa-regular fa-heart heart-icon ml-2 favorite-toggle" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
               <% end %>
-            </div>
+              <a href="<%= startup.cb_link %>" target="_blank">
+                <%= image_tag 'crunchbase_logo.png', alt: 'Crunchbase Logo', class: 'crunchbase-logo ml-2' %>
+              </a>
+            <% end %>
           </div>
         </div>
       <% end %>

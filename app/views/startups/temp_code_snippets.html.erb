@@ -1,0 +1,16 @@
+
+<!-- img link-->
+<a href="<%= startup.homepage_url %>" target="_blank">
+              <div class="card-img-top-container">
+                <%= image_tag startup.logo_url, class: "card-img-top img-fluid", alt: "Startup logo" %>
+              </div>
+</a>
+<!-- img link-->
+
+<!-- Info button -->
+
+                <a href="<%= startup_path(startup) %>" class="btn btn-primary btn-custom">
+                  <i class="fas fa-info-circle"></i><span class="icon-text">More Info</span>
+                </a>
+
+<!-- Info button -->
