@@ -9,6 +9,24 @@
   padding-right: var(--gutter-width); /* Adjust padding if needed */
   padding-left: var(--gutter-width); /* Adjust padding if needed */
 
+  .container-fluid {
+    max-width: 1281px; /* Adjust to match the max-width of .container */
+    padding-left: 0px; /* Adjust to match the padding of .container */
+    padding-right: 0px; /* Adjust to match the padding of .container */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        &.login-register {
+          margin-right: -16px; /* Adjust this value as needed to move the link to the right */
+        }
+      }
+    }
+  }
+
   .navbar-collapse {
     flex-grow: 0;
   }
