@@ -13,11 +13,12 @@
 @import "startups/index";
 
 body {
-  background-color: #ffffff; /* Set the background color to white */
   margin-right: calc(var(--gutter-width) * -1); /* Adjust margin to counteract the scrollbar width */
   overflow-y: scroll; /* Always show vertical scrollbar */
-  padding-top: 70px; /* Adjust this value based on the height of your navbar */
- }
+  padding-top: calc(var(--navbar-height) + var(--navbar-wrapper-height));
+  background-color: #ffffff; /* Adjust this value based on the height of your navbars */
+}
+
 
 html {
   scrollbar-gutter: stable;
@@ -25,6 +26,8 @@ html {
 
 :root {
   --gutter-width: 15px;
+  --navbar-height: 56px; /* Adjust this value based on the height of your navbar-lewagon */
+  --navbar-wrapper-height: 56px; /* Adjust this value based on the height of your navbar-wrapper */
 }
 
 .plain-text {
