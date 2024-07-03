@@ -1,0 +1,23 @@
+<!-- app/views/shared/_navbar_wrapper.html.erb -->
+<div class="navbar-wrapper">
+  <div class="container-fluid">
+    <h1>sourcing agent</h1>
+    <% if user_signed_in? %>
+      <%= current_user.first_name %>,
+      <% if params[:action] == 'favorites' %>
+        you have <%= @favorites&.count || 0 %> favorite investments.
+      <% else %>
+        there are <%= @startups&.count || 0 %> investments for you to watch.
+      <% end %>
+    <% else %>
+      There are <%= @startups&.count || 0 %> investments for you to watch.
+    <% end %>
+    <br>
+    <nav class="custom-navbar">
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link <%= 'active' if params[:controller] == 'startups' && params[:action] == 'index' %>" id="nav-all-tab" href="<%= alfred_root_path %>" aria-controls="nav-all" aria-selected="true">All</a>
+        <a class="nav-item nav-link <%= 'active' if params[:controller] == 'startups' && params[:action] == 'favorites' %>" id="nav-favorites-tab" href="<%= favorites_path %>" aria-controls="nav-favorites" aria-selected="false">Favorites</a>
+      </div>
+    </nav>
+  </div>
+</div>
