@@ -1,8 +1,8 @@
 <!-- app/views/startups/favorites.html.erb -->
-<div class="container mt-5">
-  <div class="row cards-row">
-    <%= render 'shared/subpage' %>
-      <% @startups.each do |startup| %>
+<div class="content-container">
+  <div class="container mt-5">
+    <div class="row cards-row">
+       <% @startups.each do |startup| %>
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-2">
           <div class="card custom-card position-relative h-100">
             <div class="card-img-top-container">
@@ -33,4 +33,5 @@
         </div>
       <% end %>
   </div>
+</div>
 </div>
