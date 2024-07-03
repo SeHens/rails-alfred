@@ -18,7 +18,7 @@
     <%= render "shared/flashes" %>
   <% end %>
 
-  <% unless controller_name == 'home' && action_name == 'index' || controller_name == 'sessions' || controller_name == 'registrations' %>
+  <% unless controller_name == 'home' && action_name == 'index' || controller_name == 'sessions' || controller_name == 'registrations' || controller_name == 'passwords' %>
     <%= render "shared/navbar_wrapper" %>
   <% end %>
 
