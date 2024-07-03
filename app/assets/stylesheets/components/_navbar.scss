@@ -6,6 +6,8 @@
   top: 0; /* Position it at the top of the viewport */
   width: 100%; /* Ensure it spans the full width */
   z-index: 1000; /* Ensure it is above other content */
+  padding-right: var(--gutter-width); /* Adjust padding if needed */
+  padding-left: var(--gutter-width); /* Adjust padding if needed */
 
   .navbar-collapse {
     flex-grow: 0;
@@ -48,9 +50,4 @@
       margin-left: 10px;
     }
   }
-}
-
-/* Ensure content below the navbar is not hidden under it */
-body {
-  padding-top: 70px; /* Adjust this value based on the height of your navbar */
 }
