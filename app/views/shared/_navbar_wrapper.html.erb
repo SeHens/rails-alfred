@@ -18,16 +18,18 @@
         <a class="nav-item nav-link <%= 'active' if params[:controller] == 'startups' && params[:action] == 'index' %>" id="nav-all-tab" href="<%= alfred_root_path %>" aria-controls="nav-all" aria-selected="true">All</a>
         <a class="nav-item nav-link <%= 'active' if params[:controller] == 'startups' && params[:action] == 'favorites' %>" id="nav-favorites-tab" href="<%= favorites_path %>" aria-controls="nav-favorites" aria-selected="false">Favorites</a>
       </div>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropdown button
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-      </div>
+      <% if user_signed_in? %>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown button
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+      <% end %>
     </nav>
   </div>
 </div>
