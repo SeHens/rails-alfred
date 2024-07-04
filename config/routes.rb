@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       end
     end
 
-    get 'favorites', to: 'startups#favorites'
+    get 'favorites', to: 'startups#favorites', as: 'favorites'
 
     # Set the root to startups#index within the /alfred scope
     root to: "startups#index", as: 'alfred_root'
