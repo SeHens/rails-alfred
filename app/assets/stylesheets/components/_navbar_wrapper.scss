@@ -52,11 +52,20 @@
       background-color: #007bff; /* Bootstrap standard blue */
       border-color: #007bff; /* Bootstrap standard blue */
       color: white;
+      width: 160px; /* Set a fixed width */
+      text-align: right; /* Align text to the left */
 
       &:hover,
       &:focus {
         background-color: darken(#007bff, 10%); /* Darken on hover/focus */
         border-color: darken(#007bff, 10%); /* Darken on hover/focus */
+      }
+
+      &.disabled {
+        background-color: #6c757d !important; /* Grey background for disabled state */
+        border-color: #6c757d !important; /* Grey border for disabled state */
+        color: #ffffff !important; /* White text for disabled state */
+        pointer-events: none; /* Disable pointer events */
       }
     }
 
