@@ -20,13 +20,16 @@
       </div>
       <% if user_signed_in? %>
         <div class="dropdown">
+          <span class="fa-icon"><i class="fa-solid fa-sliders"></i></span>
           <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown button
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Current Month</a></li>
+            <li><a class="dropdown-item" href="#">Current Quarter</a></li>
+            <li><a class="dropdown-item" href="#">Previos Quarter</a></li>
+            <li><a class="dropdown-item" href="#">YTD</a></li>
+            <li><a class="dropdown-item" href="#">All</a></li>
           </ul>
         </div>
       <% end %>

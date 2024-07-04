@@ -43,6 +43,11 @@
     margin-left: auto; /* Push the dropdown to the far right */
     margin-right: -10px; /* Add some space to the right if needed */
 
+    .fa-icon {
+      margin-right: 10px; /* Adjust the space between the icon and the dropdown button */
+      margin-left: -10px; /* Move the icon to the left */
+    }
+
     .dropdown-toggle {
       background-color: #007bff; /* Bootstrap standard blue */
       border-color: #007bff; /* Bootstrap standard blue */
