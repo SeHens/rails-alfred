@@ -69,39 +69,3 @@
     }
   }
 }
-
-.navbar-wrapper {
-  position: fixed; /* Make the navbar fixed */
-  top: var(--navbar-height); /* Adjust this value to be below the navbar-lewagon */
-  width: 100%; /* Ensure it spans the full width */
-  z-index: 999; /* Ensure it is above other content but below navbar-lewagon */
-  background-color: #FFFFFF; /* Add background color if needed */
-  padding-bottom: 20px;
-
-  .container-fluid {
-    max-width: 1281px; /* Adjust to match the max-width of .container */
-    padding-left: 0px; /* Adjust to match the padding of .container */
-    padding-right: 0px; /* Adjust to match the padding of .container */
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: var(--navbar-wrapper-height); /* Adjust this value to push down the content inside the navbar-wrapper */
-    position: relative;
-  }
-
-  /* Extend the border using a pseudo-element */
-  .container-fluid::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0px; /* Adjust to extend the border to the left */
-    width: calc(100% + 16px); /* Adjust to extend the border to the right */
-    border-bottom: 1px solid #ccc;
-  }
-}
-
-
-.custom-navbar {
-  width: 100%; /* This can be customized if necessary */
-  margin-bottom: -1px;
-  padding-top: 20px;
-}
