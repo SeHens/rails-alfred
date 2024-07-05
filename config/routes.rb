@@ -1,6 +1,6 @@
 # routes.rb
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: 'sessions' }
+  devise_for :users
 
   scope '/alfred' do
     resources :startups do

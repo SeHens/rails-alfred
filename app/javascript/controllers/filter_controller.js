@@ -24,7 +24,7 @@ export default class extends Controller {
   }
 
   resetFilter() {
-    this.dropdownButtonTarget.textContent = "No date filter"
+    this.dropdownButtonTarget.textContent = "All dates"
     sessionStorage.removeItem("selectedFilter")
   }
 
@@ -47,13 +47,13 @@ export default class extends Controller {
     if (selectedFilter) {
       this.dropdownButtonTarget.textContent = selectedFilter
     } else {
-      this.dropdownButtonTarget.textContent = "No date filter"
+      this.dropdownButtonTarget.textContent = "All dates"
     }
   }
 
   checkActiveTab() {
     if (document.querySelector('#nav-favorites-tab').classList.contains('active')) {
-      this.dropdownButtonTarget.textContent = "No date filter"
+      this.dropdownButtonTarget.textContent = "All dates"
       this.dropdownButtonTarget.disabled = true
     } else {
       this.updateDropdownTextFromSession()

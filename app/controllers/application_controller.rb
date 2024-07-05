@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource_or_scope)
-      alfred_root_path
+    alfred_root_path # Always redirect to the All tab after sign in
   end
 
   def after_sign_out_path_for(resource_or_scope)

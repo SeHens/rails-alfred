@@ -22,7 +22,7 @@
         <div class="dropdown">
           <span class="fa-icon"><i class="fa-solid fa-sliders"></i></span>
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" data-filter-target="dropdownButton">
-            No date filter
+            All dates
           </button>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
             <li><%= link_to 'Current Month', alfred_root_path(filter: 'Current Month'), class: 'dropdown-item', data: { filter_target: "dropdownItem", filter: 'Current Month' } %></li>
@@ -33,7 +33,7 @@
             <li><%= link_to 'Last 12 Months', alfred_root_path(filter: 'Last 12 Months'), class: 'dropdown-item', data: { filter_target: "dropdownItem", filter: 'Last 12 Months' } %></li>
             <li><%= link_to 'Previous Year', alfred_root_path(filter: 'Previous Year'), class: 'dropdown-item', data: { filter_target: "dropdownItem", filter: 'Previous Year' } %></li>
             <li><hr class="dropdown-divider"></li>
-            <li><%= link_to 'All', alfred_root_path(filter: 'All'), class: 'dropdown-item', data: { filter_target: "dropdownItem", filter: 'All' } %></li>
+            <li><%= link_to 'All dates', alfred_root_path(filter: 'All dates'), class: 'dropdown-item', data: { filter_target: "dropdownItem", filter: 'All dates' } %></li>
           </ul>
         </div>
       <% end %>
