@@ -15,13 +15,13 @@
 body {
   margin-right: calc(var(--gutter-width) * -1); /* Adjust margin to counteract the scrollbar width */
   overflow-y: scroll; /* Always show vertical scrollbar */
+  overflow-x: scroll; /* Always show horizontal scrollbar */
   padding-top: calc(var(--navbar-height) + var(--navbar-wrapper-height));
   background-color: #ffffff; /* Adjust this value based on the height of your navbars */
 }
 
-
 html {
-  scrollbar-gutter: stable;
+  scrollbar-gutter: stable both-edges; /* Ensure both vertical and horizontal scrollbars are always visible */
 }
 
 :root {
