@@ -5,7 +5,7 @@ class StartupsController < ApplicationController
   before_action :set_startups, only: %i[index show edit]
 
   def index
-    @startups = filter_startups(params[:filter])
+    @startups = filter_startups(params[:filter]).order(:name)
     @favorites = current_user.favorites.includes(:startup) if user_signed_in?
   end
 
