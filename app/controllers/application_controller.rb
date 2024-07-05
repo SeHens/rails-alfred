@@ -10,11 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource_or_scope)
-    if resource_or_scope.favorites.count.zero?
       alfred_root_path
-    else
-      stored_location_for(resource_or_scope) || favorites_path
-    end
   end
 
   def after_sign_out_path_for(resource_or_scope)

@@ -9,8 +9,9 @@ export default class extends Controller {
     this.dropdownItemTargets.forEach(item => {
       item.addEventListener("click", this.selectFilter.bind(this))
     })
-    this.allTabTarget.addEventListener("click", this.resetFilter.bind(this))
-    this.favoritesTabTarget.addEventListener("click", this.resetFilter.bind(this))
+    this.allTabTarget.addEventListener("click", this.switchToAllTab.bind(this))
+    this.favoritesTabTarget.addEventListener("click", this.switchToFavoritesTab.bind(this))
+    this.checkActiveTab() // Ensure correct initial state
     console.log("Filter controller connected.")
   }
 
@@ -22,15 +23,41 @@ export default class extends Controller {
     window.location.href = event.currentTarget.href
   }
 
+  resetFilter() {
+    this.dropdownButtonTarget.textContent = "No date filter"
+    sessionStorage.removeItem("selectedFilter")
+  }
+
+  switchToAllTab(event) {
+    if (event) event.preventDefault()
+    this.updateDropdownTextFromSession()
+    this.dropdownButtonTarget.disabled = false
+    window.location.href = this.allTabTarget.href
+  }
+
+  switchToFavoritesTab(event) {
+    if (event) event.preventDefault()
+    this.resetFilter()
+    this.dropdownButtonTarget.disabled = true
+    window.location.href = event.currentTarget.href
+  }
+
   updateDropdownTextFromSession() {
     const selectedFilter = sessionStorage.getItem("selectedFilter")
     if (selectedFilter) {
       this.dropdownButtonTarget.textContent = selectedFilter
+    } else {
+      this.dropdownButtonTarget.textContent = "No date filter"
     }
   }
 
-  resetFilter() {
-    sessionStorage.removeItem("selectedFilter")
-    this.dropdownButtonTarget.textContent = "No date selected"
+  checkActiveTab() {
+    if (document.querySelector('#nav-favorites-tab').classList.contains('active')) {
+      this.dropdownButtonTarget.textContent = "No date filter"
+      this.dropdownButtonTarget.disabled = true
+    } else {
+      this.updateDropdownTextFromSession()
+      this.dropdownButtonTarget.disabled = false
+    }
   }
 }

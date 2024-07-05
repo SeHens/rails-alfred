@@ -50,7 +50,6 @@ class StartupsController < ApplicationController
         if favorite_status.present?
           @startup.update(favorite: ActiveRecord::Type::Boolean.new.cast(favorite_status))
         end
-
         format.html { redirect_to startups_path, notice: "Startup was successfully updated." }
         format.json { render :show, status: :ok, location: @startup }
       else
@@ -119,12 +118,13 @@ class StartupsController < ApplicationController
       quarter_end = quarter_start.end_of_quarter
       Startup.where(funding_date: quarter_start..quarter_end)
     when "Last 12 Months"
-      twelve_months_ago = Date.current - 12.months
-      Startup.where(funding_date: twelve_months_ago..Time.current)
+      one_year_ago = Date.current - 1.year
+      Startup.where(funding_date: one_year_ago..Time.current)
     when "Previous Year"
-      last_year_start = Date.current.prev_year.beginning_of_year
-      last_year_end = last_year_start.end_of_year
-      Startup.where(funding_date: last_year_start..last_year_end)
+      last_year = Date.current.last_year
+      year_start = last_year.beginning_of_year
+      year_end = last_year.end_of_year
+      Startup.where(funding_date: year_start..year_end)
     else
       Startup.all
     end

@@ -53,6 +53,8 @@
       color: white;
       width: 160px;
       text-align: right;
+      overflow: hidden;
+      transition: none;
 
       &:hover,
       &:focus {
