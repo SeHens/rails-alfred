@@ -1,36 +1,26 @@
 <!-- _startup.html.erb -->
-<div class="row align-items-center">
-  <div class="col-md-8 d-flex align-items-center">
-    <h1><%= @startup.name %></h1>
-    <% if user_signed_in? %>
-      <% if current_user.favorites.exists?(startup: @startup) %>
-        <i class="fa-solid fa-heart p-3"></i>
-      <% else %>
-        <i class="fa-regular fa-heart p-3"></i>
-      <% end %>
-    <% else %>
-      <i class="fa-regular fa-heart p-3"></i>
-    <% end %>
-  </div>
-  <div class="col-md-4 text-md-right text-center">
-    <%= image_tag @startup.logo_url, class: "img-fluid startup-logo", alt: "Startup Logo" %>
-  </div>
-</div>
-
-<div class="d-flex justify-content-center mt-3"> <!-- Added d-flex justify-content-center to center the cards -->
-  <div class="row align-items-stretch w-100"> <!-- Added w-100 and max-width for centering -->
-    <div class="col-md-4 border p-3 custom-margin-details custom-card-show d-flex flex-column">
-      <h5 class="card-title">Details</h5>
-      <ul class="list-group mt-3">
-        <li class="list-group-item"><b>Industry:</b> <%= @startup.industry %></li>
-        <li class="list-group-item"><b>HQ Location:</b> <%= @startup.hq_location %></li>
-        <li class="list-group-item"><b>Total Funding:</b> <%= @startup.total_funding %></li>
-        <li class="list-group-item"><b>Website:</b> <a href="<%= @startup.homepage_url %>" target="_blank"><%= @startup.homepage_url %></a></li>
-      </ul>
+<div class="d-flex justify-content-center mt-3">
+  <div class="container w-100">
+    <div class="row align-items-stretch"> <!-- Add g-3 for gutters -->
+      <div class="col-md-4 border p-3 custom-card-show d-flex flex-column">
+        <h5 class="card-title">Details</h5>
+        <ul class="list-group mt-3">
+          <li class="list-group-item"><b>Name:</b> <%= @startup.name %></li>
+          <li class="list-group-item"><b>Industry:</b> <%= @startup.industry %></li>
+          <li class="list-group-item"><b>HQ Location:</b> <%= @startup.hq_location %></li>
+          <li class="list-group-item"><b>Website:</b> <a href="<%= @startup.homepage_url %>" target="_blank"><%= @startup.homepage_url %></a></li>
+        </ul>
+      </div>
+      <div class="col-md-8 border p-3 custom-card-show d-flex flex-column">
+        <h5 class="card-title">Description</h5>
+        <p class="card-text mt-3"><%= @startup.description %></p>
+      </div>
     </div>
-    <div class="col-md-8 border p-3 custom-margin-description custom-card-show d-flex flex-column">
-      <h5 class="card-title">Description</h5>
-      <p class="card-text mt-3"><%= @startup.description %></p>
+    <div class="row align-items-stretch mt-3"> <!-- Add g-3 for gutters -->
+      <div class="col-md-12 border p-3 custom-card-show d-flex flex-column custom-card-description">
+        <h5 class="card-title">Comments</h5>
+        <p class="card-text mt-3">No comments available.</p>
+      </div>
     </div>
   </div>
 </div>

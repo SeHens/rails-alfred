@@ -1,15 +1,16 @@
 .show-content-container {
   .container {
-    max-width: 1271px; /* Same max-width as navbar-wrapper container */
-    padding-left: 0px; /* Adjust to match the padding of navbar-wrapper container */
-    padding-right: 0px; /* Adjust to match the padding of navbar-wrapper container */
+    max-width: 1248px;
+    padding-left: 0px;
+    padding-right: 0px;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 48px;
   }
 }
 
 .startup-logo {
-  max-width: 100px; /* Adjust the maximum width as needed */
+  max-width: 100px;
   margin-left: auto;
 }
 
@@ -19,28 +20,22 @@
 }
 
 .list-group-item {
-  background-color: transparent !important; /* Remove background color */
-  border: none !important; /* Remove borders if needed */
+  background-color: transparent !important;
+  border: none !important;
 }
 
 .border {
   background-color: #F4F4F4;
 }
 
-.custom-margin-details {
-  margin-right: 0px; /* Adjust the margin as needed */
-  margin-left: 0px;
-}
-
-.custom-margin-description {
-  margin-right: -10px; /* Adjust the margin as needed */
-  margin-left: 8px;
-}
-
 .custom-card-show {
   background-color: #ffffff;
-  padding: 0.5rem; /* Adjust padding from the card */
+  padding: 0.5rem;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
+}
+
+.custom-card-description {
+  margin-left: 0px;
 }

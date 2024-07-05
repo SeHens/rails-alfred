@@ -13,6 +13,7 @@ export default class extends Controller {
     this.favoritesTabTarget.addEventListener("click", this.switchToFavoritesTab.bind(this))
     this.checkActiveTab() // Ensure correct initial state
     console.log("Filter controller connected.")
+    this.checkPage() // Check if we are on the show or edit page
   }
 
   selectFilter(event) {
@@ -58,6 +59,16 @@ export default class extends Controller {
     } else {
       this.updateDropdownTextFromSession()
       this.dropdownButtonTarget.disabled = false
+    }
+  }
+
+  checkPage() {
+    const path = window.location.pathname
+    const showEditPaths = [/\/startups\/\d+$/, /\/startups\/\d+\/edit$/] // Regex patterns for show and edit pages
+    const isShowOrEditPage = showEditPaths.some(pattern => pattern.test(path))
+    if (isShowOrEditPage) {
+      this.dropdownButtonTarget.textContent = "All dates"
+      this.dropdownButtonTarget.disabled = true
     }
   }
 }

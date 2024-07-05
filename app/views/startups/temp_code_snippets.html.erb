@@ -16,3 +16,22 @@
 <!-- Info button -->
 
 <%= render 'shared/subpage' %>
+
+Startup
+<div class="row align-items-center">
+  <div class="col-md-8 d-flex align-items-center">
+    <h1><%= @startup.name %></h1>
+    <% if user_signed_in? %>
+      <% if current_user.favorites.exists?(startup: @startup) %>
+        <i class="fa-solid fa-heart p-3"></i>
+      <% else %>
+        <i class="fa-regular fa-heart p-3"></i>
+      <% end %>
+    <% else %>
+      <i class="fa-regular fa-heart p-3"></i>
+    <% end %>
+  </div>
+  <div class="col-md-4 text-md-right text-center">
+    <%= image_tag @startup.logo_url, class: "img-fluid startup-logo", alt: "Startup Logo" %>
+  </div>
+</div>
