@@ -76,7 +76,12 @@
 
 .content-container {
   margin-top: 160px;
-  background-color: #ffffff; /* Adjust this value to account for the fixed navbars */
+  background-color: #ffffff;
+  padding-left: 20px; /* Ensure no extra padding on the left */
+  padding-right: 0px; /* Ensure no extra padding on the right */
+  max-width: 1320px; /* Same max-width as the navbar-wrapper container */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cards-container {
