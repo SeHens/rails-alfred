@@ -1,11 +1,21 @@
+.show-content-container {
+  .container {
+    max-width: 1271px; /* Same max-width as navbar-wrapper container */
+    padding-left: 0px; /* Adjust to match the padding of navbar-wrapper container */
+    padding-right: 0px; /* Adjust to match the padding of navbar-wrapper container */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .startup-logo {
   max-width: 100px; /* Adjust the maximum width as needed */
-  margin-left: auto
+  margin-left: auto;
 }
 
 .description-card {
   height: 100%;
-  margin-top: 10px
+  margin-top: 10px;
 }
 
 .list-group-item {
@@ -17,6 +27,20 @@
   background-color: #F4F4F4;
 }
 
-.custom-margin {
-  margin-right: 8px; /* Adjust the margin as needed */
+.custom-margin-details {
+  margin-right: 0px; /* Adjust the margin as needed */
+  margin-left: 0px;
+}
+
+.custom-margin-description {
+  margin-right: -10px; /* Adjust the margin as needed */
+  margin-left: 8px;
+}
+
+.custom-card-show {
+  background-color: #ffffff;
+  padding: 0.5rem; /* Adjust padding from the card */
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
 }
