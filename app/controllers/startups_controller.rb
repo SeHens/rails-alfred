@@ -1,8 +1,8 @@
-# app/controllers/startups_controller.rb
 class StartupsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   before_action :authenticate_user!, only: [:favorites, :favorite, :unfavorite]
   before_action :set_startup, only: %i[show edit update destroy favorite unfavorite]
+  before_action :set_startups, only: %i[index show edit]
 
   def index
     @startups = filter_startups(params[:filter])
@@ -96,6 +96,10 @@ class StartupsController < ApplicationController
 
   def set_startup
     @startup = Startup.find(params[:id])
+  end
+
+  def set_startups
+    @startups = Startup.all
   end
 
   def startup_params
