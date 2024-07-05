@@ -1,8 +1,8 @@
 // app/javascript/controllers/hello_controller.js
-import { Controller } from "@hotwired/stimulus";
+import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["button", "favoritesLink"];
+  static targets = ["button", "favoritesLink"]
 
   connect() {
     this.checkFavoritesTab();
@@ -17,18 +17,32 @@ export default class extends Controller {
   }
 
   updateStartups(filterValue) {
-    console.log(`Filter startups by: ${filterValue}`);
+    const url = new URL('/alfred/startups', window.location.origin);
+    url.searchParams.append('filter', filterValue);
 
-    if (filterValue === "All") {
-      console.log("Showing all startups");
-    } else {
-      console.log(`Filtering startups by: ${filterValue}`);
-    }
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        "Accept": "text/html",
+        "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").content
+      },
+      credentials: "same-origin"
+    }).then(response => {
+      if (response.ok) {
+        return response.text();
+      } else {
+        throw new Error("Network response was not ok.");
+      }
+    }).then(html => {
+      document.querySelector("#startups-container").innerHTML = html;
+    }).catch(error => {
+      console.error("There was a problem with the fetch operation:", error);
+    });
   }
 
   disableDropdown() {
     this.buttonTarget.disabled = true;
-    this.buttonTarget.classList.add("disabled"); // Add a class to apply custom disabled styles
+    this.buttonTarget.classList.add("disabled");
   }
 
   enableDropdown() {

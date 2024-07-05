@@ -5,7 +5,7 @@ class StartupsController < ApplicationController
   before_action :set_startup, only: %i[show edit update destroy favorite unfavorite]
 
   def index
-    @startups = Startup.all
+    @startups = filter_startups(params[:filter])
     @favorites = current_user.favorites.includes(:startup) if user_signed_in?
   end
 
@@ -42,15 +42,11 @@ class StartupsController < ApplicationController
   end
 
   def update
-    # Update the favorite status based on the form submission
     favorite_status = params[:startup].delete(:favorite)
-
-    # Set the logo URL to 'no_logo.png' if it's blank
     @startup.logo_url = 'no_logo.png' if params[:startup][:logo_url].blank?
 
     respond_to do |format|
       if @startup.update(startup_params)
-        # Update the favorite status if it was provided in the form
         if favorite_status.present?
           @startup.update(favorite: ActiveRecord::Type::Boolean.new.cast(favorite_status))
         end
@@ -63,7 +59,6 @@ class StartupsController < ApplicationController
       end
     end
   end
-
 
   def destroy
     @startup.destroy!
@@ -100,11 +95,38 @@ class StartupsController < ApplicationController
 
   private
 
-    def set_startup
-      @startup = Startup.find(params[:id])
-    end
+  def set_startup
+    @startup = Startup.find(params[:id])
+  end
 
-    def startup_params
-      params.require(:startup).permit(:name, :homepage_url, :logo_url, :industry, :description, :hq_location, :total_funding)
+  def startup_params
+    params.require(:startup).permit(:name, :homepage_url, :logo_url, :industry, :description, :hq_location, :total_funding)
+  end
+
+  def filter_startups(filter)
+    case filter
+    when "YTD"
+      year_start = Date.current.beginning_of_year
+      Startup.where(funding_date: year_start..Time.current)
+    when "Current Month"
+      month_start = Date.current.beginning_of_month
+      Startup.where(funding_date: month_start..Time.current)
+    when "Current Quarter"
+      quarter_start = Date.current.beginning_of_quarter
+      Startup.where(funding_date: quarter_start..Time.current)
+    when "Previous Quarter"
+      quarter_start = (Date.current - 3.months).beginning_of_quarter
+      quarter_end = quarter_start.end_of_quarter
+      Startup.where(funding_date: quarter_start..quarter_end)
+    when "Last 12 Months"
+      twelve_months_ago = Date.current - 12.months
+      Startup.where(funding_date: twelve_months_ago..Time.current)
+    when "Previous Year"
+      last_year_start = Date.current.prev_year.beginning_of_year
+      last_year_end = last_year_start.end_of_year
+      Startup.where(funding_date: last_year_start..last_year_end)
+    else
+      Startup.all
     end
+  end
 end
