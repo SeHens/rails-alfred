@@ -103,7 +103,7 @@ class StartupsController < ApplicationController
   end
 
   def startup_params
-    params.require(:startup).permit(:name, :homepage_url, :logo_url, :industry, :description, :hq_location, :total_funding)
+    params.require(:startup).permit(:name, :homepage_url, :logo_url, :industry, :description, :hq_location, :total_funding, :comments, :funding_date, :last_funding, :round_name)
   end
 
   def filter_startups(filter)
