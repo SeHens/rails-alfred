@@ -1,36 +1,35 @@
 
 .navbar-wrapper {
-  position: fixed; /* Make the navbar fixed */
-  top: var(--navbar-height); /* Adjust this value to be below the navbar-lewagon */
-  width: 100%; /* Ensure it spans the full width */
-  z-index: 999; /* Ensure it is above other content but below navbar-lewagon */
-  background-color: #FFFFFF; /* Add background color if needed */
+  position: fixed;
+  top: var(--navbar-height);
+  width: 100%;
+  z-index: 999;
+  background-color: #FFFFFF;
   padding-bottom: 20px;
 
   .container-fluid {
-    max-width: 1281px; /* Adjust to match the max-width of .container */
-    padding-left: 0px; /* Adjust to match the padding of .container */
-    padding-right: 0px; /* Adjust to match the padding of .container */
+    max-width: 1281px;
+    padding-left: 0px;
+    padding-right: 0px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: var(--navbar-wrapper-height); /* Adjust this value to push down the content inside the navbar-wrapper */
+    padding-top: var(--navbar-wrapper-height);
     position: relative;
   }
 
-  /* Extend the border using a pseudo-element */
-  .container-fluid::after {
+    .container-fluid::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0px; /* Adjust to extend the border to the left */
-    width: calc(100% + 16px); /* Adjust to extend the border to the right */
+    left: 0px;
+    width: calc(100% + 16px);
     border-bottom: 1px solid #ccc;
   }
 }
 
 
 .custom-navbar {
-  width: 100%; /* This can be customized if necessary */
+  width: 100%;
   margin-bottom: -1px;
   padding-top: 20px;
   display: flex;
@@ -40,44 +39,44 @@
   }
 
   .dropdown {
-    margin-left: auto; /* Push the dropdown to the far right */
-    margin-right: -10px; /* Add some space to the right if needed */
+    margin-left: auto;
+    margin-right: -10px;
 
     .fa-icon {
-      margin-right: 10px; /* Adjust the space between the icon and the dropdown button */
-      margin-left: -10px; /* Move the icon to the left */
+      margin-right: 10px;
+      margin-left: -10px;
     }
 
     .dropdown-toggle {
-      background-color: #007bff; /* Bootstrap standard blue */
-      border-color: #007bff; /* Bootstrap standard blue */
+      background-color: #007bff;
+      border-color: #007bff;
       color: white;
-      width: 160px; /* Set a fixed width */
-      text-align: right; /* Align text to the left */
+      width: 160px;
+      text-align: right;
 
       &:hover,
       &:focus {
-        background-color: darken(#007bff, 10%); /* Darken on hover/focus */
-        border-color: darken(#007bff, 10%); /* Darken on hover/focus */
+        background-color: darken(#007bff, 10%);
+        border-color: darken(#007bff, 10%);
       }
 
       &.disabled {
-        background-color: #6c757d !important; /* Grey background for disabled state */
-        border-color: #6c757d !important; /* Grey border for disabled state */
-        color: #ffffff !important; /* White text for disabled state */
-        pointer-events: none; /* Disable pointer events */
+        background-color: #6c757d !important;
+        border-color: #6c757d !important;
+        color: #ffffff !important;
+        pointer-events: none;
       }
     }
 
     .dropdown-menu {
-      background-color: #fff; /* Set background color to white */
+      background-color: #fff;
     }
 
     .dropdown-item {
-      color: #333; /* Ensure text color is dark */
+      color: #333;
       &:hover,
       &:focus {
-        background-color: #f8f9fa; /* Light gray background on hover/focus */
+        background-color: #f8f9fa;
       }
     }
   }

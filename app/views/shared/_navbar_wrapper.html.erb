@@ -1,5 +1,5 @@
 <!-- app/views/shared/_navbar_wrapper.html.erb -->
-<div class="navbar-wrapper">
+<div class="navbar-wrapper" data-controller="filter">
   <div class="container-fluid">
     <h1>sourcing agent</h1>
     <% if user_signed_in? %>
@@ -15,25 +15,25 @@
     <br>
     <nav class="custom-navbar d-flex justify-content-between">
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link <%= 'active' if params[:controller] == 'startups' && params[:action] == 'index' %>" id="nav-all-tab" href="<%= alfred_root_path %>" aria-controls="nav-all" aria-selected="true">All</a>
-        <a class="nav-item nav-link <%= 'active' if params[:controller] == 'startups' && params[:action] == 'favorites' %>" id="nav-favorites-tab" href="<%= favorites_path %>" aria-controls="nav-favorites" aria-selected="false">Favorites</a>
+        <a class="nav-item nav-link <%= 'active' if params[:controller] == 'startups' && params[:action] == 'index' %>" id="nav-all-tab" href="<%= alfred_root_path %>" aria-controls="nav-all" aria-selected="true" data-filter-target="allTab">All</a>
+        <a class="nav-item nav-link <%= 'active' if params[:controller] == 'startups' && params[:action] == 'favorites' %>" id="nav-favorites-tab" href="<%= favorites_path %>" aria-controls="nav-favorites" aria-selected="false" data-filter-target="favoritesTab">Favorites</a>
       </div>
       <% if user_signed_in? %>
         <div class="dropdown">
           <span class="fa-icon"><i class="fa-solid fa-sliders"></i></span>
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" data-filter-target="dropdownButton">
             No date filter
           </button>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-            <li><%= link_to 'Current Month', alfred_root_path(filter: 'Current Month'), class: 'dropdown-item' %></li>
-            <li><%= link_to 'Current Quarter', alfred_root_path(filter: 'Current Quarter'), class: 'dropdown-item' %></li>
-            <li><%= link_to 'Previous Quarter', alfred_root_path(filter: 'Previous Quarter'), class: 'dropdown-item' %></li>
-            <li><%= link_to 'YTD', alfred_root_path(filter: 'YTD'), class: 'dropdown-item' %></li>
+            <li><%= link_to 'Current Month', alfred_root_path(filter: 'Current Month'), class: 'dropdown-item', data: { filter_target: "dropdownItem", filter: 'Current Month' } %></li>
+            <li><%= link_to 'Current Quarter', alfred_root_path(filter: 'Current Quarter'), class: 'dropdown-item', data: { filter_target: "dropdownItem", filter: 'Current Quarter' } %></li>
+            <li><%= link_to 'Previous Quarter', alfred_root_path(filter: 'Previous Quarter'), class: 'dropdown-item', data: { filter_target: "dropdownItem", filter: 'Previous Quarter' } %></li>
+            <li><%= link_to 'YTD', alfred_root_path(filter: 'YTD'), class: 'dropdown-item', data: { filter_target: "dropdownItem", filter: 'YTD' } %></li>
             <li><hr class="dropdown-divider"></li>
-            <li><%= link_to 'Last 12 Months', alfred_root_path(filter: 'Last 12 Months'), class: 'dropdown-item' %></li>
-            <li><%= link_to 'Previous Year', alfred_root_path(filter: 'Previous Year'), class: 'dropdown-item' %></li>
+            <li><%= link_to 'Last 12 Months', alfred_root_path(filter: 'Last 12 Months'), class: 'dropdown-item', data: { filter_target: "dropdownItem", filter: 'Last 12 Months' } %></li>
+            <li><%= link_to 'Previous Year', alfred_root_path(filter: 'Previous Year'), class: 'dropdown-item', data: { filter_target: "dropdownItem", filter: 'Previous Year' } %></li>
             <li><hr class="dropdown-divider"></li>
-            <li><%= link_to 'All', alfred_root_path(filter: 'All'), class: 'dropdown-item' %></li>
+            <li><%= link_to 'All', alfred_root_path(filter: 'All'), class: 'dropdown-item', data: { filter_target: "dropdownItem", filter: 'All' } %></li>
           </ul>
         </div>
       <% end %>
