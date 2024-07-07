@@ -8,12 +8,16 @@
           </div>
           <div class="card-body">
             <p class="card-text">
-              <b>Name:</b> <%= startup.name %><br>
-              <b>HQ:</b> <%= startup.hq_location %><br>
-              <b>Industry:</b> <%= startup.industry %><br>
-              <b>Round:</b> <%= startup.round_name %>, $<%= startup.last_funding %>mn<br>
-              <b>Date:</b> <%= formatted_funding_date(startup.funding_date) %><br>
+              <b class="startup-name"><%= startup.name %></b><br>
+              <span class="startup-industry"><%= startup.industry %></span><br>
+              <span class="location-date">
+                <i class="fa-solid fa-location-dot"></i> <%= startup.hq_location %>
+                <span class="funding-date"><%= formatted_funding_date(startup.funding_date) %></span>
+              </span>
             </p>
+          </div>
+          <div class="card-footer custom-footer">
+            <b class="funding-info"><%= startup.round_name %>, $<%= startup.last_funding %>mn</b>
           </div>
         <% end %>
       <% else %>
@@ -22,12 +26,16 @@
         </div>
         <div class="card-body">
           <p class="card-text">
-            <b>Name:</b> <%= startup.name %><br>
-            <b>HQ:</b> <%= startup.hq_location %><br>
-            <b>Industry:</b> <%= startup.industry %><br>
-            <b>Round:</b> <%= startup.round_name %>, $<%= startup.last_funding %>mn<br>
-            <b>Date:</b> <%= formatted_funding_date(startup.funding_date) %><br>
+            <b class="startup-name"><%= startup.name %></b><br>
+            <span class="startup-industry"><%= startup.industry %></span><br>
+            <span class="location-date">
+              <i class="fa-solid fa-location-dot"></i> <%= startup.hq_location %>
+              <span class="funding-date"><%= formatted_funding_date(startup.funding_date) %></span>
+            </span>
           </p>
+        </div>
+        <div class="card-footer custom-footer">
+          <b class="funding-info"><%= startup.round_name %>, $<%= startup.last_funding %>mn</b>
         </div>
       <% end %>
       <% if user_signed_in? %>

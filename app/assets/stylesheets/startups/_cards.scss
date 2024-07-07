@@ -1,10 +1,15 @@
 .custom-card {
   margin: 0 0.5rem 0rem 0rem; /* Adjust margins to make cards closer */
-  background-color: #ffffff;
+  background-color: #f5f4f4;
   padding: 0.5rem; /* Adjust padding from the card */
+  padding-bottom: 0;
   height: 100%; /* Ensure cards have the same height */
   overflow: hidden; /* Ensure child elements do not overflow */
   border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column; /* Flexbox column direction */
+  justify-content: space-between; /* Space between body and footer */
+  border:none;
 }
 
 .custom-card .card-img-top-container {
@@ -42,6 +47,7 @@
 .custom-card .card-body {
   padding: 0.5rem; /* Ensure consistent padding */
   margin-bottom: 0rem;
+  flex-grow: 1; /* Allow the body to take up remaining space */
 }
 
 .custom-card .card-text {
@@ -87,6 +93,58 @@
 .cards-container {
   margin-top: 0px; /* Adjust the value as needed */
 }
+
+.card-link .startup-name {
+  font-size: 1.10rem; /* Larger font size for startup name */
+  margin-bottom: 0; /* Remove margin below the name */
+  line-height: 1.0; /* Adjust line height for better spacing */
+}
+
+.card-link .startup-industry {
+  color: #a39d9d; /* Grey color for startup industry */
+  margin-top: 0; /* Remove margin above the industry */
+  line-height: 0.25; /* Adjust line height for better spacing */
+  font-size: 0.9rem; /* Larger font size for startup name */
+}
+
+.card-link .location-date {
+  display: flex; /* Align items in a row */
+  justify-content: space-between; /* Space between location and date */
+  align-items: center; /* Vertically center the items */
+  margin-top: 2.5rem; /* Reduce space above this line */
+}
+
+.card-link .location-date .fa-location-dot {
+  margin-right: 0.5rem; /* Add space between icon and text */
+}
+
+.card-link .funding-date {
+  margin-left: auto; /* Push the date to the right */
+}
+
+/* New styles for card footer */
+.custom-footer {
+  background-color: #cabe96; /* Light grey background color */
+  padding: 0.5rem; /* Add padding to the footer */
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  text-align: center; /* Center the text */
+  margin-top: auto; /* Push the footer to the bottom */
+  width: calc(100% + 1rem); /* Ensure the footer spans the full width */
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+  border: none; /* Remove any border */
+  flex-shrink: 0; /* Ensure the footer does not shrink */
+}
+
+.custom-footer b {
+  display: inline-block;
+  font-weight: 550; /* Set a smaller font weight for bold text */
+  font-size: 0.9rem; /* Adjust font size if needed */
+}
+
+
 
 /* Responsive adjustments */
 @media (max-width: 576px) {
