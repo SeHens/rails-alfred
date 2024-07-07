@@ -1,11 +1,14 @@
 .show-content-container {
   .container {
-    max-width: 1248px;
-    padding-left: 0px;
-    padding-right: 0px;
+    max-width: 1320px;
+    padding-left: 28px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 50px;
+  }
+
+  .buttons-container {
+    margin-left: 20px; /* Adjust this value to push the buttons to the right */
   }
 }
 
@@ -14,9 +17,16 @@
   margin-left: auto;
 }
 
+.custom-title b {
+  display: inline-block;
+  font-weight: 550; /* Set a smaller font weight for bold text */
+  font-size: 0.75rem; /* Adjust font size if needed */
+}
+
 .description-card {
   height: 100%;
   margin-top: 10px;
+  border: none;
 }
 
 .list-group-item {
@@ -24,18 +34,48 @@
   border: none !important;
 }
 
-.border {
-  background-color: #F4F4F4;
-}
-
 .custom-card-show {
-  background-color: #ffffff;
+  background-color: #f5f4f4;
   padding: 0.5rem;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
+  border: none !important;
 }
 
 .custom-card-description {
   margin-left: 0px;
+  border: none !important;
+}
+
+.me-md-3 {
+  margin-right: 16px; /* Adjusted margin */
+}
+
+.col-md-8 {
+  flex: 0 0 auto;
+  width: calc(66.66667% - 16px); /* Adjusted width to ensure it spans correctly */
+  border: none !important;
+}
+
+/* Ensure borders are removed from any card elements */
+.border {
+  border: none !important;
+}
+
+/* Style for homepage link */
+.list-group-item a {
+  color: #000; /* Set link color to black */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Style for buttons at the bottom */
+.show-content-container a {
+  color: #000; /* Set link color to black */
+  text-decoration: none; /* Remove underline */
+  font-weight: none; /* Optional: Make the text bold */
+}
+
+.show-content-container a:hover {
+  text-decoration: underline; /* Optional: Add underline on hover */
 }

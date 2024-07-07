@@ -69,3 +69,16 @@
     }
   }
 }
+
+.nav-tabs .nav-link {
+  color: #000; /* Ensure links are black */
+  text-decoration: none; /* Remove text decoration */
+}
+
+.nav-tabs .nav-link:hover {
+  text-decoration: none; /* Ensure no underline on hover */
+}
+
+.nav-tabs .nav-link.active {
+  color: #000; /* Active link color */
+}

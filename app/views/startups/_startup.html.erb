@@ -2,8 +2,8 @@
 <div class="d-flex justify-content-center mt-3">
   <div class="container w-100">
     <div class="row align-items-stretch">
-      <div class="col-md-4 border p-3 custom-card-show d-flex flex-column">
-        <h5 class="card-title">Details</h5>
+      <div class="col-md-4 border p-3 custom-card-show d-flex flex-column me-md-3"> <!-- Added margin-end class -->
+        <h5 class="card-title"><b>Details</b></h5>
         <ul class="list-group mt-3">
           <li class="list-group-item"><b>Name:</b> <%= @startup.name %></li>
           <li class="list-group-item"><b>Industry:</b> <%= @startup.industry %></li>
@@ -11,14 +11,14 @@
           <li class="list-group-item"><b>Website:</b> <a href="<%= @startup.homepage_url %>" target="_blank"><%= @startup.homepage_url %></a></li>
         </ul>
       </div>
-      <div class="col-md-8 border p-3 custom-card-show d-flex flex-column">
-        <h5 class="card-title">Description</h5>
+      <div class="col-md-8 border p-3 custom-card-show d-flex flex-column"> <!-- Changed col-md-8 back -->
+        <h5 class="card-title"><b>Description</b></h5>
         <p class="card-text mt-3"><%= @startup.description %></p>
       </div>
     </div>
-    <div class="row align-items-stretch mt-3"> <!-- Add g-3 for gutters -->
-      <div class="col-md-12 border p-3 custom-card-show d-flex flex-column custom-card-description">
-        <h5 class="card-title">Comments</h5>
+    <div class="row align-items-stretch mt-3">
+      <div class="col-12 border p-3 custom-card-show d-flex flex-column custom-card-description">
+        <h5 class="card-title"><b>Comments</b></h5>
         <p class="card-text mt-3">
           <% if @startup.comments.present? %>
             <%= @startup.comments %>
