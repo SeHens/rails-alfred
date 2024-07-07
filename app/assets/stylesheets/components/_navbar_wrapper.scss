@@ -48,8 +48,9 @@
     }
 
     .dropdown-toggle {
-      background-color: #007bff;
-      border-color: #007bff;
+      background-color: #000000;
+      border-color: #000000;
+      border-radius: 5px;
       color: white;
       width: 160px;
       text-align: right;
@@ -58,8 +59,8 @@
 
       &:hover,
       &:focus {
-        background-color: darken(#007bff, 10%);
-        border-color: darken(#007bff, 10%);
+        background-color: #333;
+        border-color: #333;
       }
 
       &.disabled {
