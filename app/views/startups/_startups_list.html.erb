@@ -1,8 +1,27 @@
 <% startups.each do |startup| %>
   <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-2">
-    <div class="card custom-card position-relative h-100">
-      <% if user_signed_in? %>
-        <%= link_to startup_path(startup), class: "card-link" do %>
+    <div class="card-wrapper">
+      <div class="card custom-card position-relative h-100">
+        <% if user_signed_in? %>
+          <%= link_to startup_path(startup), class: "card-link" do %>
+            <div class="card-img-top-container">
+              <%= image_tag startup.logo_url, class: "card-img-top img-fluid", alt: "Startup logo" %>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                <b class="startup-name"><%= startup.name %></b><br>
+                <span class="startup-industry"><%= startup.industry %></span><br>
+                <span class="location-date">
+                  <i class="fa-solid fa-location-dot"></i> <%= startup.hq_location %>
+                  <span class="funding-date"><%= formatted_funding_date(startup.funding_date) %></span>
+                </span>
+              </p>
+            </div>
+            <div class="card-footer custom-footer">
+              <b class="funding-info"><%= startup.round_name %>, $<%= startup.last_funding %>mn</b>
+            </div>
+          <% end %>
+        <% else %>
           <div class="card-img-top-container">
             <%= image_tag startup.logo_url, class: "card-img-top img-fluid", alt: "Startup logo" %>
           </div>
@@ -20,34 +39,17 @@
             <b class="funding-info"><%= startup.round_name %>, $<%= startup.last_funding %>mn</b>
           </div>
         <% end %>
-      <% else %>
-        <div class="card-img-top-container">
-          <%= image_tag startup.logo_url, class: "card-img-top img-fluid", alt: "Startup logo" %>
-        </div>
-        <div class="card-body">
-          <p class="card-text">
-            <b class="startup-name"><%= startup.name %></b><br>
-            <span class="startup-industry"><%= startup.industry %></span><br>
-            <span class="location-date">
-              <i class="fa-solid fa-location-dot"></i> <%= startup.hq_location %>
-              <span class="funding-date"><%= formatted_funding_date(startup.funding_date) %></span>
-            </span>
-          </p>
-        </div>
-        <div class="card-footer custom-footer">
-          <b class="funding-info"><%= startup.round_name %>, $<%= startup.last_funding %>mn</b>
-        </div>
-      <% end %>
-      <% if user_signed_in? %>
-        <% if current_user.favorites.exists?(startup: startup) %>
-          <i class="fa-solid fa-heart heart-icon ml-2 favorite-toggle" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
-        <% else %>
-          <i class="fa-regular fa-heart heart-icon ml-2 favorite-toggle" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
+        <% if user_signed_in? %>
+          <% if current_user.favorites.exists?(startup: startup) %>
+            <i class="fa-solid fa-heart heart-icon ml-2 favorite-toggle" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
+          <% else %>
+            <i class="fa-regular fa-heart heart-icon ml-2 favorite-toggle" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
+          <% end %>
+          <a href="<%= startup.cb_link %>" target="_blank">
+            <%= image_tag 'crunchbase_logo.png', alt: 'Crunchbase Logo', class: 'crunchbase-logo ml-2' %>
+          </a>
         <% end %>
-        <a href="<%= startup.cb_link %>" target="_blank">
-          <%= image_tag 'crunchbase_logo.png', alt: 'Crunchbase Logo', class: 'crunchbase-logo ml-2' %>
-        </a>
-      <% end %>
+      </div>
     </div>
   </div>
 <% end %>

@@ -1,6 +1,5 @@
 .custom-card {
-  margin: 0 0.5rem 0rem 0rem; /* Adjust margins to make cards closer */
-  background-color: #f5f4f4;
+  margin: 0 0.5rem 1rem 0rem; /* Adjust margins to make cards closer */
   padding: 0.5rem; /* Adjust padding from the card */
   padding-bottom: 0;
   height: 100%; /* Ensure cards have the same height */
@@ -9,7 +8,14 @@
   display: flex;
   flex-direction: column; /* Flexbox column direction */
   justify-content: space-between; /* Space between body and footer */
-  border:none;
+  border: none;
+  background-color: #f5f4f4; /* Ensure background color is applied to the top and body */
+  border: 2px solid #FFFFFF; /* Add colored border on hover */
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+
+  &:hover {
+    border: 2px solid #000000; /* Add colored border on hover */
+  }
 }
 
 .custom-card .card-img-top-container {
@@ -143,8 +149,6 @@
   font-weight: 550; /* Set a smaller font weight for bold text */
   font-size: 0.9rem; /* Adjust font size if needed */
 }
-
-
 
 /* Responsive adjustments */
 @media (max-width: 576px) {
