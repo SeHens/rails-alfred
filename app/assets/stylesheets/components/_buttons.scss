@@ -41,3 +41,33 @@
   background-color: #dc3545;
   color: #fff;
 }
+
+
+.alfred-container-btn {
+  position: absolute;
+  top: calc(50% + 30px); /* Adjust to position the button below the typewriter */
+  left: calc(50% + 5px);
+  transform: translate(-50%, 0);
+  text-align: center;
+
+  .explore-btn {
+    display: none; // Initially hidden
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 60px; // Increased padding to make the button wider
+    border: none; // Remove default button border
+    cursor: pointer; // Change cursor to pointer when hovering over the button
+    transition: background-color 0.3s; // Smooth transition for background color
+    text-decoration: none;
+
+    &:hover {
+      background-color: #333; // Darker background on hover
+    }
+  }
+
+  .explore-btn a {
+    text-decoration: none; // Remove link underline
+    color: white; // Ensure text color remains white
+  }
+}

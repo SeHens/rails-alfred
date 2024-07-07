@@ -17,7 +17,7 @@ body {
   overflow-y: scroll; /* Always show vertical scrollbar */
   overflow-x: scroll; /* Always show horizontal scrollbar */
   padding-top: calc(var(--navbar-height) + var(--navbar-wrapper-height));
-  background-color: #ffffff; /* Adjust this value based on the height of your navbars */
+  background-color: #ffffff;
 }
 
 html {
@@ -31,6 +31,6 @@ html {
 }
 
 .plain-text {
-  text-decoration: none; /* Remove underline */
-  color: inherit; /* Use the parent's color */
+  text-decoration: none;
+  color: inherit;
 }

@@ -7,7 +7,7 @@ export default class extends Controller {
   connect() {
     console.log("Hello from hello_controller.js");
 
-    // Start blinking immediately for 2 seconds
+    // Start blinking immediately
     this.startBlinking();
 
     // After 3 seconds, start typing text
@@ -29,6 +29,8 @@ export default class extends Controller {
       } else {
         // Typing finished, ensure cursor keeps blinking
         this.startBlinking();
+        // Dispatch an event to show the button
+        this.element.dispatchEvent(new CustomEvent('typewriter:finished', { bubbles: true }));
       }
     };
 
