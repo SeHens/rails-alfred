@@ -1,23 +1,22 @@
-
-
 .btn-custom {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   .icon-text {
     margin-left: 5px; /* Increase or decrease as needed */
   }
 }
 
 .btn-primary.btn-custom {
-  background-color: transparent;
-  color: #007bff;
-  border-color: #007bff;
+  background-color: #000000; /* Black background color */
+  color: #ffffff; /* White text color */
+  border-color: #000000; /* Black border color */
 }
 
 .btn-primary.btn-custom:hover {
-  background-color: #007bff;
-  color: #fff;
+  background-color: #333333; /* Darker background on hover */
+  color: #ffffff; /* Ensure text color remains white */
 }
 
 .btn-secondary.btn-custom {
@@ -28,7 +27,7 @@
 
 .btn-secondary.btn-custom:hover {
   background-color: #6c757d;
-  color: #fff;
+  color: #ffffff;
 }
 
 .btn-danger.btn-custom {
@@ -39,9 +38,8 @@
 
 .btn-danger.btn-custom:hover {
   background-color: #dc3545;
-  color: #fff;
+  color: #ffffff;
 }
-
 
 .alfred-container-btn {
   position: absolute;
