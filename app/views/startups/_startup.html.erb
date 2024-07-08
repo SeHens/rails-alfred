@@ -19,13 +19,7 @@
     <div class="row align-items-stretch mt-3">
       <div class="col-12 border p-3 custom-card-show d-flex flex-column custom-card-description">
         <h5 class="card-title"><b>Comments</b></h5>
-        <p class="card-text mt-3">
-          <% if @startup.comments.present? %>
-            <%= @startup.comments %>
-          <% else %>
-            No comments available.
-          <% end %>
-        </p>
+        <p class="card-text mt-3"><%= @startup.comments %></p>
       </div>
     </div>
   </div>

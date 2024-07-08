@@ -27,6 +27,26 @@
     }
   }
 
+  .nav-item.d-flex {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-item .fa-icon {
+    margin-right: 5px; /* Adjust this value as needed */
+  }
+
+
+  .nav-item .login {
+    color: #000; /* Ensure the text color is black */
+    text-decoration: none; /* Remove underline by default */
+  }
+
+  .nav-item .login:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+
+
   .navbar-collapse {
     flex-grow: 0;
   }

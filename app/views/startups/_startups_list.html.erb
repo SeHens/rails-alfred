@@ -22,22 +22,24 @@
             </div>
           <% end %>
         <% else %>
-          <div class="card-img-top-container">
-            <%= image_tag startup.logo_url, class: "card-img-top img-fluid", alt: "Startup logo" %>
-          </div>
-          <div class="card-body">
-            <p class="card-text">
-              <b class="startup-name"><%= startup.name %></b><br>
-              <span class="startup-industry"><%= startup.industry %></span><br>
-              <span class="location-date">
-                <i class="fa-solid fa-location-dot"></i> <%= startup.hq_location %>
-                <span class="funding-date"><%= formatted_funding_date(startup.funding_date) %></span>
-              </span>
-            </p>
-          </div>
-          <div class="card-footer custom-footer">
-            <b class="funding-info"><%= startup.round_name %>, $<%= startup.last_funding %>mn</b>
-          </div>
+          <%= link_to new_user_session_path, class: "card-link" do %>
+            <div class="card-img-top-container">
+              <%= image_tag startup.logo_url, class: "card-img-top img-fluid", alt: "Startup logo" %>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                <b class="startup-name"><%= startup.name %></b><br>
+                <span class="startup-industry"><%= startup.industry %></span><br>
+                <span class="location-date">
+                  <i class="fa-solid fa-location-dot"></i> <%= startup.hq_location %>
+                  <span class="funding-date"><%= formatted_funding_date(startup.funding_date) %></span>
+                </span>
+              </p>
+            </div>
+            <div class="card-footer custom-footer">
+              <b class="funding-info"><%= startup.round_name %>, $<%= startup.last_funding %>mn</b>
+            </div>
+          <% end %>
         <% end %>
         <% if user_signed_in? %>
           <% if current_user.favorites.exists?(startup: startup) %>

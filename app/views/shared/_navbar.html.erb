@@ -19,8 +19,9 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login or register", new_user_session_path, class: "nav-link login-register" %>
+          <li class="nav-item d-flex align-items-center">
+            <i class="fa-regular fa-circle-user"></i>
+            <%= link_to "Login", new_user_session_path, class: "nav-link login ms-2" %>
           </li>
         <% end %>
       </ul>
