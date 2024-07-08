@@ -10,6 +10,12 @@ export default class extends Controller {
 
   toggle(event) {
     event.preventDefault()
+
+    // Check if the element has the data-favorites-tab attribute set to true
+    if (this.element.dataset.favoritesTab === "true") {
+      return // Do nothing if we are in the Favorites tab
+    }
+
     const startupId = this.element.dataset.startupId
     const url = this.element.classList.contains("fa-regular") ? `/alfred/startups/${startupId}/favorite` : `/alfred/startups/${startupId}/unfavorite`
     const method = this.element.classList.contains("fa-regular") ? "PATCH" : "PATCH"
@@ -41,7 +47,6 @@ export default class extends Controller {
   }
 
   updateInvestmentsText(count) {
-    ccount = count || document.querySelector('.count').textContent.trim();
     const favoriteTabActive = document.querySelector('.nav-item.nav-link.active').id === 'nav-favorites-tab';
     const investmentsText = favoriteTabActive ? `${count} favorite(s) selected.` : `${count} investments to watch for you.`;
     document.querySelector('.count').textContent = count;

@@ -28,9 +28,9 @@
               <% end %>
               <% if user_signed_in? %>
                 <% if current_user.favorites.exists?(startup: startup) %>
-                  <i class="fa-solid fa-heart heart-icon ml-2 favorite-toggle" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
+                  <i class="fa-solid fa-heart heart-icon ml-2 favorite-toggle disabled" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>" data-favorites-tab="true"></i>
                 <% else %>
-                  <i class="fa-regular fa-heart heart-icon ml-2 favorite-toggle" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>"></i>
+                  <i class="fa-regular fa-heart heart-icon ml-2 favorite-toggle disabled" data-controller="favorite" data-action="click->favorite#toggle" data-startup-id="<%= startup.id %>" data-favorites-tab="true"></i>
                 <% end %>
                 <a href="<%= startup.cb_link %>" target="_blank">
                   <%= image_tag 'crunchbase_logo.png', alt: 'Crunchbase Logo', class: 'crunchbase-logo ml-2' %>
