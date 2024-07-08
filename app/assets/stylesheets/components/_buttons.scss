@@ -43,9 +43,9 @@
 
 .alfred-container-btn {
   position: absolute;
-  top: calc(50% + 10px); /* Adjust to position the button below the typewriter */
-  left: calc(50% + 2.5px);
-  transform: translate(-50%, 0);
+  top: calc(50% + 40px); /* Adjusted to push the button down */
+  left: calc(50% + 10px);
+  transform: translate(-50%, -50%);
   text-align: center;
 
   .additional-text {
@@ -54,25 +54,48 @@
     margin-bottom: 10px; /* Space between text and button */
   }
 
-  .explore-btn {
-    display: none; // Initially hidden
-    background-color: black;
-    color: white;
-    margin-top: 80px;
-    border-radius: 5px;
-    padding: 10px 60px; // Increased padding to make the button wider
-    border: none; // Remove default button border
-    cursor: pointer; // Change cursor to pointer when hovering over the button
-    transition: background-color 0.3s; // Smooth transition for background color
-    text-decoration: none;
-
-    &:hover {
-      background-color: #333; // Darker background on hover
-    }
+  .custom-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Move the switch down */
+    margin-left: 15px; /* Move the switch to the right */
   }
+}
 
-  .explore-btn a {
-    text-decoration: none; // Remove link underline
-    color: white; // Ensure text color remains white
-  }
+.custom-switch .form-check-input {
+  width: 90px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 30px;
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  background-image: radial-gradient(circle, black 50%, transparent 50%);
+  background-repeat: no-repeat;
+  background-position: 3px center; /* Initial position of the black ball */
+  background-size: 24px 24px; /* Size of the black ball */
+}
+
+.custom-switch .form-check-input:checked {
+  background-color: black;
+  border-color: black;
+  background-image: radial-gradient(circle, white 50%, transparent 50%);
+  background-position: calc(100% - 3px) center; /* Position of the white ball when checked */
+}
+
+.custom-switch .form-check-input:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Consistent shade for both states */
+}
+
+.custom-switch .form-check-input:checked:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Consistent shade for both states */
+}
+
+.custom-switch .form-check-input:focus {
+  box-shadow: none;
 }

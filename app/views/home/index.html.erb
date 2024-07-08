@@ -3,9 +3,9 @@
 <div class="typewriter-container" data-controller="hello">
   <p data-hello-target="output" class="typewriter-output"></p>
 </div>
-<div class="alfred-container-btn" data-controller="button">
-  <p data-button-target="text" class="additional-text" style="display: none;">sourcing agent </p>
-  <a href="/alfred" target="_blank" data-button-target="button" class="explore-btn" style="display: none;">
-    Explore
-  </a>
+<div class="alfred-container-btn" data-controller="switch">
+  <p data-switch-target="text" class="additional-text" style="display: none;">sourcing agent</p>
+  <div class="form-check form-switch custom-switch" data-switch-target="switch" style="display: none;">
+    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" data-url="/alfred" data-action="change->switch#toggleSwitch">
+  </div>
 </div>
