@@ -63,11 +63,6 @@
   border: none !important;
 }
 
-/* Style for homepage link */
-.list-group-item a {
-  color: #000; /* Set link color to black */
-  text-decoration: none; /* Remove underline */
-}
 
 /* Style for buttons at the bottom */
 .show-content-container a {
@@ -77,5 +72,18 @@
 }
 
 .show-content-container a:hover {
+  color: #000; /* Set link color to black */
+  text-decoration: underline; /* Remove underline */
+  font-weight: none; /* Optional: Make the text bold */
+}
+
+/* Style for homepage link */
+.list-group-item a {
+  color: #000; /* Set link color to black */
+  text-decoration: none; /* Remove underline */
+}
+
+.list-group-item a:hover {
   text-decoration: underline; /* Optional: Add underline on hover */
+  color: $blue;
 }
