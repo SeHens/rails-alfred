@@ -32,7 +32,7 @@ class StartupsController < ApplicationController
 
     respond_to do |format|
       if @startup.save
-        format.html { redirect_to startups_path, notice: "Startup was successfully created." }
+        format.html { redirect_to @startup, notice: "Startup was successfully created." }
         format.json { render :show, status: :created, location: @startup }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -50,7 +50,7 @@ class StartupsController < ApplicationController
         if favorite_status.present?
           @startup.update(favorite: ActiveRecord::Type::Boolean.new.cast(favorite_status))
         end
-        format.html { redirect_to startups_path, notice: "Startup was successfully updated." }
+        format.html { redirect_to @startup, notice: "Startup was successfully updated." }
         format.json { render :show, status: :ok, location: @startup }
       else
         format.html { render :edit, status: :unprocessable_entity }
