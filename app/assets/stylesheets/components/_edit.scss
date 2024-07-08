@@ -6,3 +6,14 @@
   margin-right: auto;
   padding-top: 106px;
 }
+
+/* Style for buttons at the bottom */
+.edit-content-container a {
+  color: #000; /* Set link color to black */
+  text-decoration: none; /* Remove underline */
+  font-weight: none; /* Optional: Make the text bold */
+}
+
+.edit-content-container a:hover {
+  text-decoration: underline; /* Optional: Add underline on hover */
+}
