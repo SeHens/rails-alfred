@@ -19,58 +19,46 @@ export default class extends Controller {
   selectFilter(event) {
     event.preventDefault()
     const filter = event.currentTarget.dataset.filter
-    if (this.hasDropdownButtonTarget) {
-      this.dropdownButtonTarget.textContent = filter
-    }
+    this.dropdownButtonTarget.textContent = filter
     sessionStorage.setItem("selectedFilter", filter)
     window.location.href = event.currentTarget.href
   }
 
   resetFilter() {
-    if (this.hasDropdownButtonTarget) {
-      this.dropdownButtonTarget.textContent = "All dates"
-    }
+    this.dropdownButtonTarget.textContent = "All dates"
     sessionStorage.removeItem("selectedFilter")
   }
 
   switchToAllTab(event) {
     if (event) event.preventDefault()
     this.updateDropdownTextFromSession()
-    if (this.hasDropdownButtonTarget) {
-      this.dropdownButtonTarget.disabled = false
-    }
+    this.dropdownButtonTarget.disabled = false
     window.location.href = this.allTabTarget.href
   }
 
   switchToFavoritesTab(event) {
     if (event) event.preventDefault()
     this.resetFilter()
-    if (this.hasDropdownButtonTarget) {
-      this.dropdownButtonTarget.disabled = true
-    }
+    this.dropdownButtonTarget.disabled = true
     window.location.href = event.currentTarget.href
   }
 
   updateDropdownTextFromSession() {
     const selectedFilter = sessionStorage.getItem("selectedFilter")
-    if (this.hasDropdownButtonTarget) {
-      if (selectedFilter) {
-        this.dropdownButtonTarget.textContent = selectedFilter
-      } else {
-        this.dropdownButtonTarget.textContent = "All dates"
-      }
+    if (selectedFilter) {
+      this.dropdownButtonTarget.textContent = selectedFilter
+    } else {
+      this.dropdownButtonTarget.textContent = "All dates"
     }
   }
 
   checkActiveTab() {
-    if (this.hasDropdownButtonTarget) {
-      if (document.querySelector('#nav-favorites-tab').classList.contains('active')) {
-        this.dropdownButtonTarget.textContent = "All dates"
-        this.dropdownButtonTarget.disabled = true
-      } else {
-        this.updateDropdownTextFromSession()
-        this.dropdownButtonTarget.disabled = false
-      }
+    if (document.querySelector('#nav-favorites-tab').classList.contains('active')) {
+      this.dropdownButtonTarget.textContent = "All dates"
+      this.dropdownButtonTarget.disabled = true
+    } else {
+      this.updateDropdownTextFromSession()
+      this.dropdownButtonTarget.disabled = false
     }
   }
 
@@ -78,11 +66,9 @@ export default class extends Controller {
     const path = window.location.pathname
     const showEditPaths = [/\/startups\/\d+$/, /\/startups\/\d+\/edit$/] // Regex patterns for show and edit pages
     const isShowOrEditPage = showEditPaths.some(pattern => pattern.test(path))
-    if (this.hasDropdownButtonTarget) {
-      if (isShowOrEditPage) {
-        this.dropdownButtonTarget.textContent = "All dates"
-        this.dropdownButtonTarget.disabled = true
-      }
+    if (isShowOrEditPage) {
+      this.dropdownButtonTarget.textContent = "All dates"
+      this.dropdownButtonTarget.disabled = true
     }
   }
 }

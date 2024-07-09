@@ -1,6 +1,6 @@
 <div class="container d-flex vh-100">
   <div class="card p-4 shadow-lg">
-    <h2 class="text-center mb-4">Forgot your password?</h2>
+    <h3 class="text-center mb-4">Forgot your password?</h3>
 
     <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= f.error_notification %>
@@ -13,7 +13,7 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Send me reset password instructions", class: "bbtn btn-primary btn-custom btn-full-width rounded-btn same-height-btn mb-2" %>
+        <%= f.button :submit, "Send", class: "bbtn btn-primary btn-custom btn-full-width rounded-btn same-height-btn mb-2" %>
       </div>
     <% end %>
 

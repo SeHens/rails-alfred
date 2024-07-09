@@ -22,6 +22,20 @@
   text-decoration: underline !important; /* Add underline on hover */
 }
 
+.forgot-link {
+  text-align: center;
+  // No need to set color and text-decoration here for the container
+}
+
+.forgot-link a {
+  color: #000 !important; /* Set link font color to black */
+  text-decoration: none !important; /* Remove underline from link */
+}
+
+.forgot-link a:hover {
+  text-decoration: underline !important; /* Add underline on hover */
+}
+
 .form-actions {
   display: flex;
   flex-direction: column;
