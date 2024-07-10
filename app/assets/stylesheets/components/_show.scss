@@ -9,7 +9,7 @@
   }
 
   .buttons-container {
-    margin-left: 20px; /* Adjust this value to push the buttons to the right */
+    margin-left: 280px; /* Adjust this value to push the buttons to the right */
   }
 }
 
@@ -38,7 +38,6 @@
   }
 }
 
-
 .list-group-item {
   background-color: transparent !important;
   border: none !important;
@@ -53,9 +52,11 @@
   border: none !important;
 }
 
-.custom-card-description {
+.custom-card-comments {
   margin-left: 0px;
   border: none !important;
+  height: 420px;
+  overflow-y: auto;
 }
 
 .me-md-3 {
