@@ -13,7 +13,8 @@
   transition: border-color 0.3s ease; /* Smooth transition for border color */
 
   &:hover {
-    border: 2px solid #000000; /* Add colored border on hover */
+    border: 2px solid #000000;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -89,7 +90,7 @@
   margin-top: 162px;
   background-color: #ffffff;
   padding-left: 30px; /* Ensure no extra padding on the left */
-  padding-right: 0px; /* Ensure no extra padding on the right */
+  padding-right: 15px; /* Ensure no extra padding on the right */
   max-width: 1320px; /* Same max-width as the navbar-wrapper container */
   margin-left: auto;
   margin-right: auto;
