@@ -15,7 +15,7 @@
 body {
   margin-right: calc(var(--gutter-width) * -1); /* Adjust margin to counteract the scrollbar width */
   overflow-y: scroll; /* Always show vertical scrollbar */
-  overflow-x: auto; /* Always show horizontal scrollbar */
+  overflow-x: scroll; /* Always show horizontal scrollbar */
   padding-top: calc(var(--navbar-height) + var(--navbar-wrapper-height));
   background-color: #ffffff;
 }
